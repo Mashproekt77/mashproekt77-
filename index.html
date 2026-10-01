@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Машпроект77">
+<meta name="theme-color" content="#0a2e5c">
+<link rel="canonical" href="https://mashproekt77.netlify.app/">
+
+<title>Машпроект77 — Кадастровые инженеры и проектирование газоснабжения в Москве</title>
+<meta name="description" content="Машпроект77 — кадастровые работы, межевание, технические планы и проектирование газоснабжения в Москве и МО. Надёжные решения для вашего проекта.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Машпроект77 — Кадастровые инженеры и проектирование газоснабжения">
+<meta property="og:description" content="Кадастровые работы и проектирование газоснабжения в Москве и МО.">
+<meta property="og:url" content="https://mashproekt77.netlify.app/">
+<meta property="og:site_name" content="Машпроект77">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M8 36 L20 18 L32 18 L44 30 L56 30 L56 44 L8 44 Z' fill='%23f5a623'/><path d='M20 18 L32 18 L44 30 L56 30 L56 44 L32 44 L32 30 L20 30 Z' fill='%230a2e5c'/><rect x='26' y='26' width='5' height='5' fill='%230a2e5c'/><rect x='32' y='26' width='5' height='5' fill='%230a2e5c'/><rect x='26' y='32' width='5' height='5' fill='%230a2e5c'/><rect x='32' y='32' width='5' height='5' fill='%230a2e5c'/><path d='M42 28 Q42 16 48 10 Q54 16 54 28 Q54 34 48 38 Q42 34 42 28 Z' fill='%234a90d9'/></svg>">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark-blue: #0a2e5c;
+    --blue: #1a4a8a;
+    --light-blue: #4a90d9;
+    --accent: #f5a623;
+    --accent-light: #ffc107;
+    --white: #ffffff;
+    --light: #f4f7fa;
+    --gray: #5a6b82;
+    --dark: #1a2332;
+    --success: #1e7e34;
+    --error: #c62828;
+    --telegram: #2AABEE;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: var(--white);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5 { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; }
+  a { color: inherit; text-decoration: none; }
+  img, svg { max-width: 100%; display: block; }
+
+  .skip-link {
+    position: absolute; top: -100px; left: 10px;
+    background: var(--accent); color: var(--dark-blue);
+    padding: 10px 16px; z-index: 10000; font-weight: 700; border-radius: 3px;
+  }
+  .skip-link:focus { top: 10px; }
+
+  /* TOPBAR */
+  .topbar {
+    background: var(--dark-blue); color: #c5d3e8; font-size: 13px;
+    padding: 12px 5%; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .topbar-left, .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .topbar a { color: var(--accent-light); transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--white); }
+  .topbar span { display: flex; align-items: center; gap: 6px; }
+  .topbar svg { width: 14px; height: 14px; flex-shrink: 0; }
+  
+  .telegram-links-topbar { display: flex; gap: 10px; }
+  .telegram-link-topbar {
+    background: var(--telegram); color: var(--white) !important;
+    padding: 6px 14px; border-radius: 4px; font-weight: 600; font-size: 12px;
+    transition: all 0.3s;
+  }
+  .telegram-link-topbar:hover { background: #229ED9; transform: translateY(-2px); }
+
+  /* HEADER */
+  .header {
+    background: var(--white); padding: 16px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 16px rgba(10,46,92,0.08);
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 48px; height: 48px; flex-shrink: 0; }
+  .logo-text {
+    font-size: 22px; font-weight: 900; color: var(--dark-blue); letter-spacing: 0.5px;
+  }
+  .logo-text span { color: var(--accent); }
+  .nav { display: flex; gap: 28px; }
+  .nav a {
+    color: var(--dark); font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    transition: color 0.3s; position: relative;
+  }
+  .nav a:hover, .nav a.active { color: var(--accent); }
+  .nav a.active::after {
+    content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+  }
+  .header-phone {
+    font-weight: 800; font-size: 16px; color: var(--dark-blue);
+    transition: color 0.3s;
+  }
+  .header-phone:hover { color: var(--accent); }
+  .burger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 6px;
+  }
+  .burger span {
+    width: 28px; height: 3px; background: var(--dark-blue);
+    border-radius: 2px; transition: all 0.3s;
+  }
+  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* HERO - без внешних картинок, только CSS */
+  .hero {
+    min-height: 90vh;
+    background: 
+      linear-gradient(135deg, rgba(10,46,92,0.95) 0%, rgba(26,74,138,0.9) 50%, rgba(10,46,92,0.95) 100%),
+      repeating-linear-gradient(45deg, rgba(245,166,35,0.03) 0px, rgba(245,166,35,0.03) 2px, transparent 2px, transparent 20px),
+      repeating-linear-gradient(-45deg, rgba(245,166,35,0.03) 0px, rgba(245,166,35,0.03) 2px, transparent 2px, transparent 20px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    color: var(--white); display: flex; align-items: center;
+    padding: 80px 5%; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(245,166,35,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.08) 1px, transparent 1px);
+    background-size: 50px 50px; pointer-events: none;
+  }
+  .hero-content { max-width: 800px; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-block; background: var(--accent); color: var(--dark-blue);
+    padding: 10px 22px; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 24px; font-weight: 800;
+  }
+  .hero h1 { font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; }
+  .hero h1 span { color: var(--accent); }
+  .hero-subtitle { font-size: 20px; margin-bottom: 16px; color: #d6e3f5; font-weight: 600; }
+  .hero p { font-size: 17px; margin-bottom: 40px; color: #b8c9e0; max-width: 620px; }
+  .buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    padding: 16px 32px; font-size: 14px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; border: none;
+    cursor: pointer; display: inline-block; transition: all 0.3s;
+    text-align: center;
+  }
+  .btn-primary { background: var(--accent); color: var(--dark-blue); }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(245,166,35,0.5); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+  .btn-outline:hover { background: var(--white); color: var(--dark-blue); }
+  .btn-telegram { background: var(--telegram); color: var(--white); }
+  .btn-telegram:hover { background: #229ED9; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(42,171,238,0.4); }
+
+  /* SERVICES SPLIT */
+  .services-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+  .service-block { padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
+  .service-block.cadastral { background: var(--white); color: var(--dark-blue); }
+  .service-block.gas { background: var(--dark-blue); color: var(--white); }
+  .service-block .icon-circle {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+  }
+  .cadastral .icon-circle { background: var(--light); }
+  .gas .icon-circle { background: rgba(245,166,35,0.15); }
+  .service-block h2 { font-size: 32px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; line-height: 1.2; }
+  .gas h2 span { color: var(--accent); }
+  .service-list { list-style: none; margin-bottom: 30px; }
+  .service-list li { padding: 10px 0 10px 30px; position: relative; font-size: 16px; font-weight: 600; }
+  .service-list li::before {
+    content: ''; position: absolute; left: 0; top: 16px;
+    width: 14px; height: 14px; background: var(--accent); border-radius: 2px;
+  }
+  .service-block .btn { align-self: flex-start; }
+  .cadastral .btn { background: var(--dark-blue); color: var(--white); }
+  .cadastral .btn:hover { background: var(--blue); }
+
+  /* STATS */
+  .stats {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+    padding: 60px 5%; display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; color: var(--white);
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 48px; font-weight: 900; color: var(--accent); display: block; line-height: 1; }
+  .stat-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #b8c9e0; margin-top: 12px; font-weight: 600; }
+
+  /* SECTION */
+  .section { padding: 100px 5%; }
+  .section-title { text-align: center; margin-bottom: 60px; }
+  .section-title h2 { font-size: 38px; color: var(--dark-blue); margin-bottom: 16px; text-transform: uppercase; font-weight: 900; }
+  .section-title p { color: var(--gray); font-size: 17px; max-width: 600px; margin: 0 auto; }
+  .section-title .line { width: 70px; height: 4px; background: var(--accent); margin: 20px auto 0; }
+
+  /* ADVANTAGES */
+  .advantages { background: var(--light); }
+  .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; max-width: 1200px; margin: 0 auto; }
+  .adv-card {
+    background: var(--white); padding: 36px 28px; border-left: 4px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(10,46,92,0.06); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .adv-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(10,46,92,0.12); }
+  .adv-icon {
+    width: 56px; height: 56px; background: var(--light); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+  }
+  .adv-icon svg { width: 28px; height: 28px; stroke: var(--dark-blue); }
+  .adv-card h3 { font-size: 18px; color: var(--dark-blue); margin-bottom: 12px; font-weight: 800; }
+  .adv-card p { color: var(--gray); font-size: 14px; }
+
+  /* PROCESS */
+  .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .process-step { text-align: center; padding: 30px 20px; background: var(--white); border-radius: 4px; box-shadow: 0 4px 20px rgba(10,46,92,0.06); }
+  .step-num {
+    width: 64px; height: 64px; background: var(--dark-blue); color: var(--accent);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 26px; font-weight: 900;
+    margin: 0 auto 18px; border: 3px solid var(--accent);
+  }
+  .process-step h4 { color: var(--dark-blue); margin-bottom: 10px; font-size: 16px; font-weight: 800; }
+  .process-step p { color: var(--gray); font-size: 14px; }
+
+  /* CONTACT */
+  .contact { background: var(--dark-blue); color: var(--white); padding: 100px 5%; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
+  .contact-info h2 { font-size: 38px; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
+  .contact-info h2 span { color: var(--accent); }
+  .contact-info > p { color: #b8c9e0; margin-bottom: 36px; font-size: 16px; }
+  .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .contact-icon {
+    width: 48px; height: 48px; background: var(--accent); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-icon svg { width: 22px; height: 22px; stroke: var(--dark-blue); }
+  .contact-item strong { display: block; color: var(--white); margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-item span { color: #d6e3f5; font-size: 16px; font-weight: 600; }
+  .contact-item a { color: #d6e3f5; transition: color 0.3s; }
+  .contact-item a:hover { color: var(--accent); }
+
+  .telegram-block {
+    background: rgba(42,171,238,0.1); border: 1px solid rgba(42,171,238,0.3);
+    border-radius: 8px; padding: 24px; margin-top: 10px;
+  }
+  .telegram-block h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+  .telegram-block h4 svg { width: 24px; height: 24px; fill: var(--telegram); }
+  .telegram-links { display: flex; flex-direction: column; gap: 12px; }
+  .telegram-link-item {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: var(--telegram); color: var(--white); border-radius: 6px; transition: all 0.3s; font-weight: 600;
+  }
+  .telegram-link-item:hover { background: #229ED9; transform: translateX(4px); }
+  .telegram-link-item svg { width: 22px; height: 22px; fill: var(--white); flex-shrink: 0; }
+  .telegram-link-item .link-text { display: flex; flex-direction: column; }
+  .telegram-link-item .link-title { font-size: 14px; font-weight: 700; }
+  .telegram-link-item .link-desc { font-size: 12px; opacity: 0.9; font-weight: 400; }
+
+  .contact-form { background: var(--white); padding: 40px; border-radius: 4px; }
+  .contact-form h3 { color: var(--dark-blue); margin-bottom: 8px; font-size: 24px; font-weight: 900; }
+  .contact-form > p { color: var(--gray); margin-bottom: 24px; font-size: 14px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); border: 0;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 14px 16px; border: 1px solid #dde3ec;
+    border-radius: 3px; font-family: inherit; font-size: 14px;
+    transition: border 0.3s; background: var(--light);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--accent); background: var(--white);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .checkbox-group { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 20px; font-size: 13px; color: var(--gray); }
+  .checkbox-group input { margin-top: 3px; flex-shrink: 0; }
+  .checkbox-group a { color: var(--blue); text-decoration: underline; }
+  .contact-form .btn { width: 100%; text-align: center; }
+  .form-status { margin-top: 16px; padding: 14px 16px; border-radius: 3px; font-size: 14px; font-weight: 600; display: none; line-height: 1.5; }
+  .form-status.success { background: #e6f4ea; color: var(--success); display: block; border-left: 4px solid var(--success); }
+  .form-status.error { background: #fde7e9; color: var(--error); display: block; border-left: 4px solid var(--error); }
+  .form-status.info { background: #e3f2fd; color: #1565c0; display: block; border-left: 4px solid #1565c0; }
+  
+  .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; }
+
+  /* SCROLL TO TOP */
+  .scroll-top {
+    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+    background: var(--accent); color: var(--dark-blue); border: none; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  .scroll-top.visible { opacity: 1; visibility: visible; }
+  .scroll-top:hover { background: var(--accent-light); transform: translateY(-3px); }
+  .scroll-top svg { width: 22px; height: 22px; stroke: var(--dark-blue); }
+
+  /* FOOTER */
+  .footer { background: #061a36; color: #7a8fa8; padding: 40px 5% 20px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; max-width: 1200px; margin: 0 auto 30px; }
+  .footer-col h4 { color: var(--white); margin-bottom: 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col p, .footer-col a { color: #7a8fa8; font-size: 14px; line-height: 1.8; display: block; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+  .footer-logo { font-size: 20px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+  .footer-logo span { color: var(--accent); }
+  .footer-telegram-links { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .footer-telegram-link { display: flex; align-items: center; gap: 8px; color: var(--telegram); font-weight: 600; transition: all 0.3s; }
+  .footer-telegram-link:hover { color: #229ED9; transform: translateX(4px); }
+  .footer-telegram-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* PRIVACY MODAL */
+  .modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,46,92,0.85); z-index: 2000;
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--white); max-width: 700px; width: 100%;
+    max-height: 85vh; overflow-y: auto; padding: 40px; border-radius: 4px; position: relative;
+  }
+  .modal h2 { color: var(--dark-blue); margin-bottom: 20px; font-size: 24px; }
+  .modal h3 { color: var(--dark-blue); margin: 20px 0 10px; font-size: 16px; }
+  .modal p, .modal li { color: var(--dark); font-size: 14px; margin-bottom: 10px; }
+  .modal ul { margin-left: 20px; margin-bottom: 16px; }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
+    background: var(--light); border: none; border-radius: 50%; cursor: pointer;
+    font-size: 20px; color: var(--dark-blue); display: flex; align-items: center; justify-content: center;
+  }
+  .modal-close:hover { background: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .services-split { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 38px; }
+    .section-title h2 { font-size: 28px; }
+    .nav {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--white); flex-direction: column;
+      padding: 20px 5%; box-shadow: 0 8px 20px rgba(0,0,0,0.1); gap: 16px;
+    }
+    .nav.open { display: flex; }
+    .burger { display: flex; }
+    .header-phone { display: none; }
+    .topbar { font-size: 12px; }
+    .topbar-left, .topbar-right { gap: 12px; }
+    .telegram-links-topbar { flex-direction: column; gap: 6px; }
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 30px; }
+    .hero { padding: 60px 5%; min-height: auto; }
+    .section { padding: 60px 5%; }
+    .service-block { padding: 50px 5%; }
+    .contact-form { padding: 24px; }
+    .modal { padding: 24px; }
+    .stat-num { font-size: 36px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .buttons { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  
+  @media print {
+    .topbar, .header, .scroll-top, .buttons, .contact-form, .burger, .modal-overlay { display: none !important; }
+    body { color: #000; background: #fff; }
+    .hero { background: var(--dark-blue) !important; color: #fff !important; min-height: auto; padding: 30px; }
+    .section, .contact, .stats { padding: 30px 5%; }
+    a { text-decoration: underline; color: #000 !important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      ул. Чертановская 1к1, Москва, 117648
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Круглосуточно
+    </span>
+  </div>
+  <div class="topbar-right">
+    <a href="mailto:mashproekt77@yandex.ru" aria-label="Написать на почту">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      mashproekt77@yandex.ru
+    </a>
+    <a href="tel:+79309450860" aria-label="Позвонить">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
+      +7 (930) 945-08-60
+    </a>
+    <div class="telegram-links-topbar">
+      <a href="https://t.me/pereplanirovka77" class="telegram-link-topbar" target="_blank" rel="noopener noreferrer" aria-label="Наша группа в Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="display:inline"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Группа
+      </a>
+      <a href="https://t.me/pereplanirovka77_bot" class="telegram-link-topbar" target="_blank" rel="noopener noreferrer" aria-label="Наш бот Андрей в Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="display:inline"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        Бот Андрей
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="#" class="logo" aria-label="Машпроект77 — на главную">
+    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 55 L30 30 L50 30 L70 50 L85 50 L85 70 L10 70 Z" fill="#f5a623"/>
+      <path d="M30 30 L50 30 L70 50 L85 50 L85 70 L50 70 L50 50 L30 50 Z" fill="#0a2e5c"/>
+      <rect x="40" y="42" width="8" height="8" fill="#0a2e5c"/>
+      <rect x="50" y="42" width="8" height="8" fill="#0a2e5c"/>
+      <rect x="40" y="52" width="8" height="8" fill="#0a2e5c"/>
+      <rect x="50" y="52" width="8" height="8" fill="#0a2e5c"/>
+      <path d="M65 45 Q65 25 75 15 Q85 25 85 45 Q85 55 75 60 Q65 55 65 45 Z" fill="#4a90d9"/>
+      <path d="M70 48 Q70 35 75 28 Q80 35 80 48 Q80 53 75 55 Q70 53 70 48 Z" fill="#1a4a8a"/>
+      <path d="M73 50 Q73 42 75 38 Q77 42 77 50 Q77 52 75 53 Q73 52 73 50 Z" fill="#f5a623"/>
+    </svg>
+    <div class="logo-text">МАШПРОЕКТ<span>77</span></div>
+  </a>
+  <nav class="nav" id="mainNav" aria-label="Главное меню">
+    <a href="#services">Услуги</a>
+    <a href="#advantages">Преимущества</a>
+    <a href="#process">Этапы</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+  <a href="tel:+79309450860" class="header-phone" aria-label="Позвонить +7 930 945 08 60">+7 (930) 945-08-60</a>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Кадастровые инженеры · Проектировщики</div>
+    <h1>Надёжные решения <span>для вашего проекта</span></h1>
+    <div class="hero-subtitle">Кадастровые работы и проектирование газоснабжения в Москве и МО</div>
+    <p>Выполняем межевание, технические планы, проекты газоснабжения любой сложности. Согласование «под ключ» в Мосгазе и Росреестре. Работаем по СНиП, СП и ГОСТ.</p>
+    <div class="buttons">
+      <a href="#contact" class="btn btn-primary">Получить расчёт</a>
+      <a href="#services" class="btn btn-outline">Наши услуги</a>
+      <a href="https://t.me/pereplanirovka77_bot" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
+        🤖 Робот Андрей
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SPLIT -->
+<section id="services" class="services-split">
+  <div class="service-block cadastral">
+    <div class="icon-circle" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0a2e5c" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+    <h2>Кадастровые инженеры</h2>
+    <ul class="service-list">
+      <li>Межевание земельных участков</li>
+      <li>Технические планы зданий и сооружений</li>
+      <li>Кадастровые работы любой сложности</li>
+      <li>Подготовка документов для Росреестра</li>
+      <li>Уточнение границ и площади участков</li>
+    </ul>
+    <a href="#contact" class="btn">Заказать услугу</a>
+  </div>
+  <div class="service-block gas">
+    <div class="icon-circle" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2">
+        <path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-6-6-12-6-12z"/>
+        <path d="M12 10c0 0-3 3-3 6a3 3 0 006 0c0-3-3-6-3-6z"/>
+      </svg>
+    </div>
+    <h2>Проектирование <span>газоснабжения</span></h2>
+    <ul class="service-list">
+      <li>Проекты газоснабжения жилых и промышленных объектов</li>
+      <li>Согласование в Мосгазе и Ростехнадзоре</li>
+      <li>Подключение к газовым сетям</li>
+      <li>Внутренние и наружные сети газоснабжения</li>
+      <li>Технические условия и техническое перевооружение</li>
+    </ul>
+    <a href="#contact" class="btn btn-primary">Заказать проект</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Статистика компании">
+  <div class="stat-item"><span class="stat-num">5.0</span><div class="stat-label">Рейтинг в Google</div></div>
+  <div class="stat-item"><span class="stat-num">100+</span><div class="stat-label">реализованных проектов</div></div>
+  <div class="stat-item"><span class="stat-num">24/7</span><div class="stat-label">режим работы</div></div>
+  <div class="stat-item"><span class="stat-num">СРО</span><div class="stat-label">допуск к работам</div></div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+  <div class="section-title">
+    <h2>Почему выбирают нас</h2>
+    <p>Профессиональный подход к каждому проекту — от консультации до сдачи документации</p>
+    <div class="line"></div>
+  </div>
+  <div class="adv-grid">
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3>Проектная документация</h3>
+      <p>Разрабатываем полный пакет документов в соответствии с действующими нормами и стандартами.</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Безопасность и нормы</h3>
+      <p>Все проекты соответствуют СНиП, СП и ГОСТ. Гарантируем безопасность и соответствие нормам.</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      </div>
+      <h3>Современные технологии</h3>
+      <p>Используем актуальное ПО для проектирования и геодезическое оборудование высокой точности.</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      </div>
+      <h3>Энергоэффективность</h3>
+      <p>Проектируем решения, которые снижают энергопотребление и эксплуатационные расходы.</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Сжатые сроки</h3>
+      <p>Выполняем работы в оговорённые сроки. Срочные проекты — от 3 рабочих дней.</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>Согласование под ключ</h3>
+      <p>Берём на себя все согласования в Мосгазе, Росреестре и надзорных органах.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process" style="background: var(--light);">
+  <div class="section-title">
+    <h2>Этапы работы</h2>
+    <p>Прозрачный процесс от первого звонка до готового проекта</p>
+    <div class="line"></div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step"><div class="step-num">1</div><h4>Заявка и консультация</h4><p>Обсуждаем задачу, изучаем объект, определяем объём и стоимость работ</p></div>
+    <div class="process-step"><div class="step-num">2</div><h4>Выезд и замеры</h4><p>Инженер выезжает на объект, проводит замеры и собирает исходные данные</p></div>
+    <div class="process-step"><div class="step-num">3</div><h4>Разработка проекта</h4><p>Подготовка проектной и рабочей документации, кадастровых материалов</p></div>
+    <div class="process-step"><div class="step-num">4</div><h4>Согласование и сдача</h4><p>Согласование в контролирующих органах, передача готовых документов заказчику</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Свяжитесь <span>с нами</span></h2>
+      <p>Оставьте заявку — инженер перезвонит в течение 30 минут и проконсультирует по вашему проекту. Работаем круглосуточно.</p>
+      
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div><strong>Телефон</strong><span><a href="tel:+79309450860">+7 (930) 945-08-60</a></span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div><strong>Почта</strong><span><a href="mailto:mashproekt77@yandex.ru">mashproekt77@yandex.ru</a></span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div><strong>Адрес</strong><span>ул. Чертановская 1к1, Москва, 117648</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div><strong>Режим работы</strong><span>Круглосуточно, без выходных</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div><strong>Рейтинг</strong><span>5.0 в Google (4 отзыва)</span></div>
+      </div>
+      
+      <div class="telegram-block">
+        <h4>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0z"/></svg>
+          Мы в Telegram
+        </h4>
+        <div class="telegram-links">
+          <a href="https://t.me/pereplanirovka77" class="telegram-link-item" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <div class="link-text">
+              <span class="link-title">Наша группа</span>
+              <span class="link-desc">@pereplanirovka77</span>
+            </div>
+          </a>
+          <a href="https://t.me/pereplanirovka77_bot" class="telegram-link-item" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            <div class="link-text">
+              <span class="link-title">🤖 Робот Андрей</span>
+              <span class="link-desc">@pereplanirovka77_bot</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/mashproekt77@yandex.ru" method="POST" novalidate>
+      <h3>Оставить заявку</h3>
+      <p>Заполните форму — мы свяжемся с вами в течение 30 минут</p>
+      
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Новая заявка с сайта Машпроект77">
+      <input type="hidden" name="_template" value="table">
+      
+      <div class="form-group">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" name="Имя" placeholder="Ваше имя" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="Телефон" placeholder="Телефон *" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" placeholder="Email" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="service">Услуга</label>
+        <select id="service" name="Услуга" required>
+          <option value="">Выберите услугу</option>
+          <option>Кадастровые работы</option>
+          <option>Межевание</option>
+          <option>Технический план</option>
+          <option>Проект газоснабжения</option>
+          <option>Согласование проекта</option>
+          <option>Подключение к газовым сетям</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="Сообщение" placeholder="Опишите задачу (тип объекта, адрес, площадь)"></textarea>
+      </div>
+      
+      <div class="checkbox-group">
+        <input type="checkbox" id="privacy" name="Согласие_на_обработку_ПД" required>
+        <label for="privacy" style="position:static;width:auto;height:auto;clip:auto;margin:0;overflow:visible">
+          Я согласен на <a href="#" id="privacyLink">обработку персональных данных</a>
+        </label>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" id="submitBtn">Отправить заявку</button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">МАШПРОЕКТ<span>77</span></div>
+      <p>Кадастровые инженеры и проектирование газоснабжения в Москве и Московской области. Надёжные решения для вашего проекта с 2015 года.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Услуги</h4>
+      <a href="#services">Кадастровые работы</a>
+      <a href="#services">Межевание</a>
+      <a href="#services">Технические планы</a>
+      <a href="#services">Проекты газоснабжения</a>
+      <a href="#services">Согласование</a>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <a href="tel:+79309450860">+7 (930) 945-08-60</a>
+      <a href="mailto:mashproekt77@yandex.ru">mashproekt77@yandex.ru</a>
+      <p>ул. Чертановская 1к1, Москва, 117648</p>
+      <p>Круглосуточно</p>
+    </div>
+    <div class="footer-col">
+      <h4>Telegram</h4>
+      <div class="footer-telegram-links">
+        <a href="https://t.me/pereplanirovka77" class="footer-telegram-link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Группа @pereplanirovka77
+        </a>
+        <a href="https://t.me/pereplanirovka77_bot" class="footer-telegram-link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+          🤖 Робот Андрей
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2015–<span class="current-year">2026</span> Машпроект77. Все права защищены. · <a href="#" id="privacyLinkFooter" style="color:var(--accent);text-decoration:underline">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" tabindex="-1">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Закрыть">✕</button>
+    <h2 id="privacyTitle">Политика конфиденциальности</h2>
+    <p><strong>ООО «Машпроект77»</strong> соблюдает законодательство РФ в области персональных данных (152-ФЗ).</p>
+    <h3>1. Какие данные мы собираем</h3>
+    <p>Через формы на сайте: имя, телефон, email, описание задачи.</p>
+    <h3>2. Цели обработки</h3>
+    <ul>
+      <li>Связь с клиентом для обсуждения задачи</li>
+      <li>Подготовка коммерческого предложения</li>
+      <li>Заключение и исполнение договора</li>
+    </ul>
+    <h3>3. Передача данных</h3>
+    <p>Мы не передаём персональные данные третьим лицам, кроме случаев, предусмотренных законодательством РФ.</p>
+    <h3>4. Сроки хранения</h3>
+    <p>Данные хранятся не дольше, чем требуется для достижения целей обработки.</p>
+    <h3>5. Ваши права</h3>
+    <p>Вы вправе запросить уточнение, блокировку или удаление своих данных: <a href="mailto:mashproekt77@yandex.ru" style="color:var(--blue)">mashproekt77@yandex.ru</a></p>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('mainNav');
+  
+  if (burger && nav) {
+    burger.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!nav.contains(e.target) && !burger.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.classList.remove('open');
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (nav) nav.classList.remove('open');
+      if (burger) burger.classList.remove('open');
+      const modal = document.getElementById('privacyModal');
+      if (modal && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+  if (sections.length > 0 && navLinks.length > 0) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(function(section) { observer.observe(section); });
+  }
+
+  const scrollTopBtn = document.getElementById('scrollTop');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId.length < 2) return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  const modal = document.getElementById('privacyModal');
+  const privacyLinks = [document.getElementById('privacyLink'), document.getElementById('privacyLinkFooter')];
+  
+  privacyLinks.forEach(function(link) {
+    if (link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('modalClose').focus();
+      });
+    }
+  });
+
+  document.getElementById('modalClose').addEventListener('click', function() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 0 && v[0] === '8') v = '7' + v.slice(1);
+      if (v.length > 11) v = v.slice(0, 11);
+      let f = '';
+      if (v.length > 0) f = '+' + v[0];
+      if (v.length > 1) f += ' (' + v.slice(1, 4);
+      if (v.length >= 4) f += ') ' + v.slice(4, 7);
+      if (v.length >= 7) f += '-' + v.slice(7, 9);
+      if (v.length >= 9) f += '-' + v.slice(9, 11);
+      e.target.value = f;
+    });
+  }
+
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showStatus(type, message) {
+      formStatus.className = 'form-status ' + type;
+      formStatus.textContent = message;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+      
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const privacy = document.getElementById('privacy').checked;
+      
+      if (!name || !phone || !service) {
+        showStatus('error', 'Пожалуйста, заполните обязательные поля: имя, телефон и услугу.');
+        return;
+      }
+      if (phone.replace(/\D/g, '').length < 11) {
+        showStatus('error', 'Пожалуйста, введите корректный номер телефона (11 цифр).');
+        return;
+      }
+      if (!privacy) {
+        showStatus('error', 'Необходимо согласие на обработку персональных данных.');
+        return;
+      }
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправка...';
+      showStatus('info', 'Отправляем заявку...');
+      
+      const formData = {
+        name: name,
+        phone: phone,
+        email: email,
+        service: service,
+        message: message,
+        _subject: 'Новая заявка с сайта Машпроект77 — ' + service,
+        _template: 'table',
+        _captcha: 'false'
+      };
+      
+      fetch('https://formsubmit.co/ajax/mashproekt77@yandex.ru', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(data) {
+        if (data.success) {
+          showStatus('success', '✓ Заявка успешно отправлена! Инженер перезвонит вам в течение 30 минут.');
+          form.reset();
+        } else {
+          showStatus('error', 'Произошла ошибка при отправке. Пожалуйста, позвоните: +7 (930) 945-08-60');
+        }
+      })
+      .catch(function(err) {
+        console.error('FormSubmit error:', err);
+        showStatus('error', 'Ошибка соединения. Пожалуйста, позвоните: +7 (930) 945-08-60');
+      })
+      .finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Отправить заявку';
+      });
+    });
+  }
+
+  const yearElements = document.querySelectorAll('.current-year');
+  yearElements.forEach(function(el) {
+    el.textContent = new Date().getFullYear();
+  });
+})();
+</script>
+
+</body>
+</html>
