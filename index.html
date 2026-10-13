@@ -1,658 +1,1940 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<meta name="author" content="Машпроект77">
-<meta name="theme-color" content="#0a2e5c">
+<meta name="author" content="МАШПРОЕКТ77">
+<meta name="theme-color" content="#0B2E59">
 
- <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-
-<title>Машпроект77 — Кадастровые инженеры и проектирование газоснабжения в Москве</title>
-<meta name="description" content="Машпроект77 — кадастровые работы, межевание, технические планы и проектирование газоснабжения в Москве и МО. Надёжные решения для вашего проекта.">
-
-<!-- Open Graph -->
+<title>МАШПРОЕКТ77 — Кадастровые инженеры · Проектирование газоснабжения · Геодезия | Москва и МО</title>
+<meta name="description" content="МАШПРОЕКТ77 — кадастровые работы, межевание, технические планы, геодезия и проектирование газоснабжения в Москве и МО. Договор, фиксированная смета, работаем с 2014 года.">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://mashproekt77.ru/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="Машпроект77 — Кадастровые инженеры и проектирование газоснабжения">
-<meta property="og:description" content="Кадастровые работы и проектирование газоснабжения в Москве и МО.">
-<meta property="og:url" content="https://mashproekt77.netlify.app/">
-<meta property="og:site_name" content="Машпроект77">
+<meta property="og:title" content="МАШПРОЕКТ77 — Кадастр · Геодезия · Газоснабжение">
+<meta property="og:description" content="Кадастровые работы, геодезия и проектирование газоснабжения в Москве и МО. Смета за 15 минут.">
+<meta property="og:url" content="https://mashproekt77.ru/">
+<meta property="og:site_name" content="МАШПРОЕКТ77">
 
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --dark-blue: #0a2e5c;
-    --blue: #1a4a8a;
-    --light-blue: #4a90d9;
-    --accent: #f5a623;
-    --accent-light: #ffc107;
-    --white: #ffffff;
-    --light: #f4f7fa;
-    --gray: #5a6b82;
-    --dark: #1a2332;
-    --success: #1e7e34;
-    --error: #c62828;
-    --telegram: #2AABEE;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: var(--dark);
-    line-height: 1.6;
-    background: var(--white);
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4, h5 { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; }
-  a { color: inherit; text-decoration: none; }
-  img, svg { max-width: 100%; display: block; }
+/* ============================================================
+   ТОКЕНЫ
+   ============================================================ */
+:root{
+  --brand-900:#061a36;
+  --brand-800:#0B2E59;
+  --brand-700:#103a6e;
+  --brand-600:#154A8A;
+  --brand-500:#1a5aa8;
+  --accent:#F5B301;
+  --accent-2:#FFC933;
+  --accent-ink:#3A2A00;
+  --telegram:#2AABEE;
+  --telegram-h:#229ED9;
+  --success:#0F9D6E;
+  --error:#E53935;
 
-  .skip-link {
-    position: absolute; top: -100px; left: 10px;
-    background: var(--accent); color: var(--dark-blue);
-    padding: 10px 16px; z-index: 10000; font-weight: 700; border-radius: 3px;
-  }
-  .skip-link:focus { top: 10px; }
+  --ink:#0F1B2D;
+  --muted:#4A5A73;
+  --line:#E3E9F2;
+  --line-soft:#EFF3F9;
+  --surface:#FFFFFF;
+  --surface-2:#F7F9FD;
+  --bg:#EEF2F8;
+  --header-bg:rgba(255,255,255,.82);
+  --row-hover:#F6F9FE;
 
-  /* TOPBAR */
-  .topbar {
-    background: var(--dark-blue); color: #c5d3e8; font-size: 13px;
-    padding: 12px 5%; display: flex; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .topbar-left, .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-  .topbar a { color: var(--accent-light); transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
-  .topbar a:hover { color: var(--white); }
-  .topbar span { display: flex; align-items: center; gap: 6px; }
-  .topbar svg { width: 14px; height: 14px; flex-shrink: 0; }
-  
-  .telegram-links-topbar { display: flex; gap: 10px; }
-  .telegram-link-topbar {
-    background: var(--telegram); color: var(--white) !important;
-    padding: 6px 14px; border-radius: 4px; font-weight: 600; font-size: 12px;
-    transition: all 0.3s;
-  }
-  .telegram-link-topbar:hover { background: #229ED9; transform: translateY(-2px); }
+  --shadow-s:
+    0 1px 2px rgba(11,46,89,.04),
+    0 4px 12px rgba(11,46,89,.05);
+  --shadow-m:
+    0 2px 6px rgba(11,46,89,.05),
+    0 12px 32px rgba(11,46,89,.09);
+  --shadow-l:
+    0 4px 12px rgba(11,46,89,.06),
+    0 24px 64px rgba(11,46,89,.14);
+  --shadow-glow:
+    0 6px 16px rgba(245,179,1,.28),
+    0 16px 44px rgba(245,179,1,.32);
 
-  /* HEADER */
-  .header {
-    background: var(--white); padding: 16px 5%;
-    display: flex; justify-content: space-between; align-items: center;
-    box-shadow: 0 2px 16px rgba(10,46,92,0.08);
-    position: sticky; top: 0; z-index: 1000;
-  }
-  .logo { display: flex; align-items: center; gap: 12px; }
-  .logo-icon { width: 48px; height: 48px; flex-shrink: 0; }
-  .logo-text {
-    font-size: 22px; font-weight: 900; color: var(--dark-blue); letter-spacing: 0.5px;
-  }
-  .logo-text span { color: var(--accent); }
-  .nav { display: flex; gap: 28px; }
-  .nav a {
-    color: var(--dark); font-size: 14px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.5px;
-    transition: color 0.3s; position: relative;
-  }
-  .nav a:hover, .nav a.active { color: var(--accent); }
-  .nav a.active::after {
-    content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
-    height: 2px; background: var(--accent);
-  }
-  .header-phone {
-    font-weight: 800; font-size: 16px; color: var(--dark-blue);
-    transition: color 0.3s;
-  }
-  .header-phone:hover { color: var(--accent); }
-  .burger {
-    display: none; flex-direction: column; gap: 5px;
-    cursor: pointer; background: none; border: none; padding: 6px;
-  }
-  .burger span {
-    width: 28px; height: 3px; background: var(--dark-blue);
-    border-radius: 2px; transition: all 0.3s;
-  }
-  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  .burger.open span:nth-child(2) { opacity: 0; }
-  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:26px; --r-pill:999px;
+  --container:1320px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="dark"]{
+  --brand-900:#050f1f;
+  --brand-800:#0E1B2E;
+  --brand-700:#132743;
+  --brand-600:#1b3a63;
+  --brand-500:#2C6DB5;
+  --accent:#F5B301;
+  --accent-2:#FFD24D;
+  --accent-ink:#2A1F00;
+  --ink:#E9EFF8;
+  --muted:#94A5BC;
+  --line:#23324B;
+  --line-soft:#1F2E45;
+  --surface:#111C2E;
+  --surface-2:#0D1727;
+  --bg:#0A1220;
+  --header-bg:rgba(13,23,39,.82);
+  --row-hover:#16233A;
+  --shadow-s:0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.35);
+  --shadow-m:0 2px 6px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.45);
+  --shadow-l:0 4px 12px rgba(0,0,0,.45), 0 24px 64px rgba(0,0,0,.55);
+  --shadow-glow:0 6px 16px rgba(245,179,1,.18), 0 16px 44px rgba(245,179,1,.22);
+}
 
-  /* HERO - без внешних картинок, только CSS */
-  .hero {
-    min-height: 90vh;
-    background: 
-      linear-gradient(135deg, rgba(10,46,92,0.95) 0%, rgba(26,74,138,0.9) 50%, rgba(10,46,92,0.95) 100%),
-      repeating-linear-gradient(45deg, rgba(245,166,35,0.03) 0px, rgba(245,166,35,0.03) 2px, transparent 2px, transparent 20px),
-      repeating-linear-gradient(-45deg, rgba(245,166,35,0.03) 0px, rgba(245,166,35,0.03) 2px, transparent 2px, transparent 20px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
-    color: var(--white); display: flex; align-items: center;
-    padding: 80px 5%; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background-image:
-      linear-gradient(rgba(245,166,35,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(245,166,35,0.08) 1px, transparent 1px);
-    background-size: 50px 50px; pointer-events: none;
-  }
-  .hero-content { max-width: 800px; position: relative; z-index: 2; }
-  .hero-badge {
-    display: inline-block; background: var(--accent); color: var(--dark-blue);
-    padding: 10px 22px; font-size: 13px; text-transform: uppercase;
-    letter-spacing: 2px; margin-bottom: 24px; font-weight: 800;
-  }
-  .hero h1 { font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; }
-  .hero h1 span { color: var(--accent); }
-  .hero-subtitle { font-size: 20px; margin-bottom: 16px; color: #d6e3f5; font-weight: 600; }
-  .hero p { font-size: 17px; margin-bottom: 40px; color: #b8c9e0; max-width: 620px; }
-  .buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn {
-    padding: 16px 32px; font-size: 14px; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 1px; border: none;
-    cursor: pointer; display: inline-block; transition: all 0.3s;
-    text-align: center;
-  }
-  .btn-primary { background: var(--accent); color: var(--dark-blue); }
-  .btn-primary:hover { background: var(--accent-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(245,166,35,0.5); }
-  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
-  .btn-outline:hover { background: var(--white); color: var(--dark-blue); }
-  .btn-telegram { background: var(--telegram); color: var(--white); }
-  .btn-telegram:hover { background: #229ED9; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(42,171,238,0.4); }
+/* ============================================================
+   БАЗА
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.55;
+  color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 8% -12%, rgba(245,179,1,.12), transparent 62%),
+    radial-gradient(1000px 620px at 102% -6%, rgba(21,74,138,.14), transparent 58%);
+}
+[data-theme="dark"] body::before{
+  background:
+    radial-gradient(900px 520px at 8% -12%, rgba(245,179,1,.06), transparent 62%),
+    radial-gradient(1000px 620px at 102% -6%, rgba(60,130,220,.12), transparent 58%);
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:3px solid rgba(245,179,1,.75);outline-offset:2px;border-radius:6px}
+img,svg{max-width:100%;display:block}
 
-  /* SERVICES SPLIT */
-  .services-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
-  .service-block { padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
-  .service-block.cadastral { background: var(--white); color: var(--dark-blue); }
-  .service-block.gas { background: var(--dark-blue); color: var(--white); }
-  .service-block .icon-circle {
-    width: 80px; height: 80px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
-  }
-  .cadastral .icon-circle { background: var(--light); }
-  .gas .icon-circle { background: rgba(245,166,35,0.15); }
-  .service-block h2 { font-size: 32px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; line-height: 1.2; }
-  .gas h2 span { color: var(--accent); }
-  .service-list { list-style: none; margin-bottom: 30px; }
-  .service-list li { padding: 10px 0 10px 30px; position: relative; font-size: 16px; font-weight: 600; }
-  .service-list li::before {
-    content: ''; position: absolute; left: 0; top: 16px;
-    width: 14px; height: 14px; background: var(--accent); border-radius: 2px;
-  }
-  .service-block .btn { align-self: flex-start; }
-  .cadastral .btn { background: var(--dark-blue); color: var(--white); }
-  .cadastral .btn:hover { background: var(--blue); }
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
-  /* STATS */
-  .stats {
-    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
-    padding: 60px 5%; display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; color: var(--white);
-  }
-  .stat-item { text-align: center; }
-  .stat-num { font-size: 48px; font-weight: 900; color: var(--accent); display: block; line-height: 1; }
-  .stat-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #b8c9e0; margin-top: 12px; font-weight: 600; }
+/* ============================================================
+   SVG-СПРАЙТ И ИКОНКИ
+   ============================================================ */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ico{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ico-fill{fill:currentColor;stroke:none}
 
-  /* SECTION */
-  .section { padding: 100px 5%; }
-  .section-title { text-align: center; margin-bottom: 60px; }
-  .section-title h2 { font-size: 38px; color: var(--dark-blue); margin-bottom: 16px; text-transform: uppercase; font-weight: 900; }
-  .section-title p { color: var(--gray); font-size: 17px; max-width: 600px; margin: 0 auto; }
-  .section-title .line { width: 70px; height: 4px; background: var(--accent); margin: 20px auto 0; }
+/* ============================================================
+   HEADER
+   ============================================================ */
+.skip-link{position:absolute;top:-100px;left:16px;background:var(--accent);color:var(--accent-ink);padding:10px 18px;font-weight:700;border-radius:8px;z-index:9999}
+.skip-link:focus{top:12px}
 
-  /* ADVANTAGES */
-  .advantages { background: var(--light); }
-  .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; max-width: 1200px; margin: 0 auto; }
-  .adv-card {
-    background: var(--white); padding: 36px 28px; border-left: 4px solid var(--accent);
-    box-shadow: 0 4px 20px rgba(10,46,92,0.06); transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .adv-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(10,46,92,0.12); }
-  .adv-icon {
-    width: 56px; height: 56px; background: var(--light); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
-  }
-  .adv-icon svg { width: 28px; height: 28px; stroke: var(--dark-blue); }
-  .adv-card h3 { font-size: 18px; color: var(--dark-blue); margin-bottom: 12px; font-weight: 800; }
-  .adv-card p { color: var(--gray); font-size: 14px; }
+.site-header{
+  position:sticky;top:0;z-index:80;
+  padding-top:env(safe-area-inset-top, 0px);
+  background:var(--header-bg);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .25s var(--ease);
+}
+.site-header.scrolled{box-shadow:var(--shadow-s)}
+.header-inner{
+  max-width:var(--container);margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:18px;
+}
+.logo{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.logo-mark{
+  width:44px;height:44px;flex:0 0 auto;
+  filter:drop-shadow(0 4px 10px rgba(11,46,89,.14));
+}
+.logo-text{
+  font-weight:800;font-size:17px;letter-spacing:.06em;
+  color:var(--ink);line-height:1.05;
+}
+.logo-text b{color:var(--accent)}
+.logo-sub{display:block;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
 
-  /* PROCESS */
-  .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
-  .process-step { text-align: center; padding: 30px 20px; background: var(--white); border-radius: 4px; box-shadow: 0 4px 20px rgba(10,46,92,0.06); }
-  .step-num {
-    width: 64px; height: 64px; background: var(--dark-blue); color: var(--accent);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 26px; font-weight: 900;
-    margin: 0 auto 18px; border: 3px solid var(--accent);
-  }
-  .process-step h4 { color: var(--dark-blue); margin-bottom: 10px; font-size: 16px; font-weight: 800; }
-  .process-step p { color: var(--gray); font-size: 14px; }
+.header-spacer{flex:1}
 
-  /* CONTACT */
-  .contact { background: var(--dark-blue); color: var(--white); padding: 100px 5%; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
-  .contact-info h2 { font-size: 38px; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
-  .contact-info h2 span { color: var(--accent); }
-  .contact-info > p { color: #b8c9e0; margin-bottom: 36px; font-size: 16px; }
-  .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
-  .contact-icon {
-    width: 48px; height: 48px; background: var(--accent); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .contact-icon svg { width: 22px; height: 22px; stroke: var(--dark-blue); }
-  .contact-item strong { display: block; color: var(--white); margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-  .contact-item span { color: #d6e3f5; font-size: 16px; font-weight: 600; }
-  .contact-item a { color: #d6e3f5; transition: color 0.3s; }
-  .contact-item a:hover { color: var(--accent); }
+.nav{display:flex;gap:4px}
+.nav a{
+  font-size:14px;font-weight:600;color:var(--muted);
+  padding:9px 14px;border-radius:var(--r-pill);
+  transition:.22s var(--ease);
+}
+.nav a:hover{color:var(--ink);background:var(--surface-2)}
+.nav a.active{color:var(--brand-800);background:rgba(245,179,1,.14)}
+[data-theme="dark"] .nav a.active{color:var(--accent-2)}
 
-  .telegram-block {
-    background: rgba(42,171,238,0.1); border: 1px solid rgba(42,171,238,0.3);
-    border-radius: 8px; padding: 24px; margin-top: 10px;
-  }
-  .telegram-block h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
-  .telegram-block h4 svg { width: 24px; height: 24px; fill: var(--telegram); }
-  .telegram-links { display: flex; flex-direction: column; gap: 12px; }
-  .telegram-link-item {
-    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
-    background: var(--telegram); color: var(--white); border-radius: 6px; transition: all 0.3s; font-weight: 600;
-  }
-  .telegram-link-item:hover { background: #229ED9; transform: translateX(4px); }
-  .telegram-link-item svg { width: 22px; height: 22px; fill: var(--white); flex-shrink: 0; }
-  .telegram-link-item .link-text { display: flex; flex-direction: column; }
-  .telegram-link-item .link-title { font-size: 14px; font-weight: 700; }
-  .telegram-link-item .link-desc { font-size: 12px; opacity: 0.9; font-weight: 400; }
+.header-actions{display:flex;align-items:center;gap:10px}
+.phone-link{
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:700;font-size:15px;color:var(--ink);
+  padding:10px 16px;border-radius:var(--r-pill);
+  border:1px solid var(--line);background:var(--surface);
+  box-shadow:var(--shadow-s);transition:.25s var(--ease);
+}
+.phone-link:hover{border-color:var(--accent);color:var(--brand-800);transform:translateY(-1px)}
+.phone-link .ico{width:16px;height:16px;color:var(--brand-600)}
 
-  .contact-form { background: var(--white); padding: 40px; border-radius: 4px; }
-  .contact-form h3 { color: var(--dark-blue); margin-bottom: 8px; font-size: 24px; font-weight: 900; }
-  .contact-form > p { color: var(--gray); margin-bottom: 24px; font-size: 14px; }
-  .form-group { margin-bottom: 16px; }
-  .form-group label {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0); border: 0;
-  }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 14px 16px; border: 1px solid #dde3ec;
-    border-radius: 3px; font-family: inherit; font-size: 14px;
-    transition: border 0.3s; background: var(--light);
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    outline: none; border-color: var(--accent); background: var(--white);
-  }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .checkbox-group { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 20px; font-size: 13px; color: var(--gray); }
-  .checkbox-group input { margin-top: 3px; flex-shrink: 0; }
-  .checkbox-group a { color: var(--blue); text-decoration: underline; }
-  .contact-form .btn { width: 100%; text-align: center; }
-  .form-status { margin-top: 16px; padding: 14px 16px; border-radius: 3px; font-size: 14px; font-weight: 600; display: none; line-height: 1.5; }
-  .form-status.success { background: #e6f4ea; color: var(--success); display: block; border-left: 4px solid var(--success); }
-  .form-status.error { background: #fde7e9; color: var(--error); display: block; border-left: 4px solid var(--error); }
-  .form-status.info { background: #e3f2fd; color: #1565c0; display: block; border-left: 4px solid #1565c0; }
-  
-  .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; }
+.icon-btn{
+  width:42px;height:42px;border-radius:13px;
+  border:1px solid var(--line);background:var(--surface);
+  color:var(--ink);display:grid;place-items:center;
+  transition:.25s var(--ease);box-shadow:var(--shadow-s);
+}
+.icon-btn:hover{border-color:var(--accent);color:var(--brand-800);transform:translateY(-1px)}
+.icon-btn .ico{width:19px;height:19px;stroke-width:1.7}
 
-  /* SCROLL TO TOP */
-  .scroll-top {
-    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-    background: var(--accent); color: var(--dark-blue); border: none; border-radius: 50%;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
-  .scroll-top.visible { opacity: 1; visibility: visible; }
-  .scroll-top:hover { background: var(--accent-light); transform: translateY(-3px); }
-  .scroll-top svg { width: 22px; height: 22px; stroke: var(--dark-blue); }
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;padding:8px;
+}
+.burger span{width:26px;height:3px;background:var(--ink);border-radius:3px;transition:.3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-  /* FOOTER */
-  .footer { background: #061a36; color: #7a8fa8; padding: 40px 5% 20px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; max-width: 1200px; margin: 0 auto 30px; }
-  .footer-col h4 { color: var(--white); margin-bottom: 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer-col p, .footer-col a { color: #7a8fa8; font-size: 14px; line-height: 1.8; display: block; transition: color 0.3s; }
-  .footer-col a:hover { color: var(--accent); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
-  .footer-logo { font-size: 20px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
-  .footer-logo span { color: var(--accent); }
-  .footer-telegram-links { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
-  .footer-telegram-link { display: flex; align-items: center; gap: 8px; color: var(--telegram); font-weight: 600; transition: all 0.3s; }
-  .footer-telegram-link:hover { color: #229ED9; transform: translateX(4px); }
-  .footer-telegram-link svg { width: 18px; height: 18px; fill: currentColor; }
+/* ============================================================
+   КНОПКИ
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 26px;border-radius:var(--r-pill);
+  border:1px solid transparent;
+  font-weight:700;font-size:14.5px;letter-spacing:.01em;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+  white-space:nowrap;cursor:pointer;
+}
+.btn .ico{width:17px;height:17px}
+.btn .ico-fill{width:17px;height:17px}
+.btn-primary{
+  background:linear-gradient(135deg,#FFD24D 0%, #F5B301 55%, #E5A500 100%);
+  color:var(--accent-ink);
+  box-shadow:var(--shadow-glow);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(245,179,1,.4), 0 22px 52px rgba(245,179,1,.4)}
+.btn-primary:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-outline{
+  background:transparent;color:var(--ink);
+  border-color:var(--line);box-shadow:var(--shadow-s);
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--brand-800);transform:translateY(-2px);box-shadow:var(--shadow-m)}
+.btn-ghost{
+  background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.28);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
+.btn-telegram{
+  background:linear-gradient(135deg,#4FBBF2, #2AABEE 60%, #229ED9);
+  color:#fff;
+  box-shadow:0 8px 22px rgba(42,171,238,.32), 0 20px 48px rgba(42,171,238,.28);
+}
+.btn-telegram:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(42,171,238,.42), 0 26px 56px rgba(42,171,238,.32)}
+.btn-lg{padding:16px 32px;font-size:15px}
 
-  /* PRIVACY MODAL */
-  .modal-overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10,46,92,0.85); z-index: 2000;
-    display: none; align-items: center; justify-content: center; padding: 20px;
-  }
-  .modal-overlay.active { display: flex; }
-  .modal {
-    background: var(--white); max-width: 700px; width: 100%;
-    max-height: 85vh; overflow-y: auto; padding: 40px; border-radius: 4px; position: relative;
-  }
-  .modal h2 { color: var(--dark-blue); margin-bottom: 20px; font-size: 24px; }
-  .modal h3 { color: var(--dark-blue); margin: 20px 0 10px; font-size: 16px; }
-  .modal p, .modal li { color: var(--dark); font-size: 14px; margin-bottom: 10px; }
-  .modal ul { margin-left: 20px; margin-bottom: 16px; }
-  .modal-close {
-    position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
-    background: var(--light); border: none; border-radius: 50%; cursor: pointer;
-    font-size: 20px; color: var(--dark-blue); display: flex; align-items: center; justify-content: center;
-  }
-  .modal-close:hover { background: var(--accent); }
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:80px 0 70px;
+  background:
+    linear-gradient(135deg, rgba(6,26,54,.96) 0%, rgba(11,46,89,.94) 45%, rgba(16,58,110,.95) 100%),
+    repeating-linear-gradient(45deg, rgba(245,179,1,.04) 0 2px, transparent 2px 22px),
+    repeating-linear-gradient(-45deg, rgba(245,179,1,.04) 0 2px, transparent 2px 22px);
+  color:#fff;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(245,179,1,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,179,1,.07) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
+}
+.hero::after{
+  content:"";position:absolute;right:-140px;top:-120px;width:520px;height:520px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(245,179,1,.28), transparent 65%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:860px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(245,179,1,.16);
+  border:1px solid rgba(245,179,1,.4);
+  color:var(--accent-2);
+  font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  padding:9px 18px;border-radius:var(--r-pill);margin-bottom:26px;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(245,179,1,.24)}
+.hero h1{
+  font-size:clamp(34px,5.4vw,62px);line-height:1.05;font-weight:900;
+  letter-spacing:-.02em;margin:0 0 22px;color:#fff;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--accent-2),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  font-size:clamp(16px,1.7vw,20px);font-weight:600;
+  color:#d6e3f5;margin-bottom:14px;max-width:640px;
+}
+.hero p{
+  font-size:16px;color:#a9bcd6;max-width:620px;
+  margin:0 0 36px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .services-split { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 38px; }
-    .section-title h2 { font-size: 28px; }
-    .nav {
-      display: none; position: absolute; top: 100%; left: 0; right: 0;
-      background: var(--white); flex-direction: column;
-      padding: 20px 5%; box-shadow: 0 8px 20px rgba(0,0,0,0.1); gap: 16px;
-    }
-    .nav.open { display: flex; }
-    .burger { display: flex; }
-    .header-phone { display: none; }
-    .topbar { font-size: 12px; }
-    .topbar-left, .topbar-right { gap: 12px; }
-    .telegram-links-topbar { flex-direction: column; gap: 6px; }
+.hero-chips{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;
+  position:relative;z-index:2;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:#cbd9ee;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  padding:8px 14px;border-radius:var(--r-pill);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.chip .ico{width:14px;height:14px;color:var(--accent)}
+
+/* ============================================================
+   СЕКЦИИ
+   ============================================================ */
+.section{padding:96px 0}
+.section-tight{padding:72px 0}
+.section-title{text-align:center;margin-bottom:56px;padding:0 4px}
+.section-title .eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand-600);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-pill);
+  padding:8px 16px;margin-bottom:18px;box-shadow:var(--shadow-s);
+}
+[data-theme="dark"] .section-title .eyebrow{color:var(--accent-2)}
+.section-title h2{
+  font-size:clamp(26px,3.2vw,40px);font-weight:900;letter-spacing:-.02em;
+  color:var(--ink);margin:0 0 14px;text-transform:uppercase;
+}
+.section-title h2 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--brand-600),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.section-title p{color:var(--muted);font-size:16.5px;max-width:640px;margin:0 auto;padding:0 8px}
+.section-title .line{width:64px;height:4px;border-radius:3px;background:var(--accent);margin:18px auto 0}
+
+/* ============================================================
+   SERVICES SPLIT
+   ============================================================ */
+.services-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--shadow-l);
+  margin-top:-50px;position:relative;z-index:3;
+  background:var(--surface);
+  margin-bottom:56px;
+}
+.service-block{padding:56px 44px;display:flex;flex-direction:column}
+.service-block.cadastral{background:var(--surface);color:var(--ink)}
+.service-block.gas{
+  background:linear-gradient(140deg,var(--brand-600),var(--brand-800) 70%);
+  color:#fff;
+}
+.service-block .icon-circle{
+  width:72px;height:72px;border-radius:22px;
+  display:grid;place-items:center;margin-bottom:22px;
+  background:linear-gradient(140deg,rgba(21,74,138,.12),rgba(245,179,1,.16));
+  border:1px solid var(--line);
+  color:var(--brand-600);
+}
+.service-block.gas .icon-circle{
+  background:rgba(245,179,1,.15);
+  border-color:rgba(245,179,1,.32);
+  color:var(--accent);
+}
+.service-block .icon-circle svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.service-block h2{
+  font-size:clamp(22px,2.4vw,30px);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.01em;margin:0 0 18px;line-height:1.15;
+}
+.service-block.gas h2 span{color:var(--accent)}
+.service-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
+.service-list li{
+  padding:10px 0 10px 28px;position:relative;
+  font-size:15.5px;font-weight:500;
+}
+.service-list li::before{
+  content:"";position:absolute;left:0;top:17px;
+  width:12px;height:12px;border-radius:3px;
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(245,179,1,.2);
+}
+.service-block.gas .service-list li{color:#d9e5f7}
+.service-block .btn{align-self:flex-start}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats{
+  background:linear-gradient(135deg,var(--brand-800),var(--brand-600));
+  padding:52px 0;color:#fff;
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.stats-inner{
+  max-width:var(--container);margin:0 auto;padding:0 20px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:28px;
+}
+.stat-item{text-align:center;padding:6px}
+.stat-num{
+  font-size:clamp(32px,4vw,48px);font-weight:900;line-height:1;
+  color:var(--accent);display:block;letter-spacing:-.02em;
+}
+.stat-label{
+  font-size:12px;text-transform:uppercase;letter-spacing:.14em;
+  color:#b8c9e0;margin-top:12px;font-weight:700;
+}
+
+/* ============================================================
+   ADVANTAGES
+   ============================================================ */
+.adv-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+.adv-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:30px 26px;
+  box-shadow:var(--shadow-s);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.adv-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.adv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-m);border-color:transparent}
+.adv-card:hover::before{opacity:1}
+.adv-icon{
+  width:52px;height:52px;border-radius:16px;
+  display:grid;place-items:center;margin-bottom:18px;
+  background:linear-gradient(140deg,rgba(21,74,138,.10),rgba(245,179,1,.14));
+  color:var(--brand-600);
+  border:1px solid var(--line);
+}
+.adv-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.adv-card h3{font-size:17px;font-weight:800;color:var(--ink);margin:0 0 10px}
+.adv-card p{color:var(--muted);font-size:14px;margin:0;line-height:1.6}
+
+/* ============================================================
+   PRICE / TABS
+   ============================================================ */
+.price-section{background:var(--surface-2)}
+.price-toolbar{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  justify-content:space-between;margin-bottom:18px;
+}
+
+/* === SEARCH === */
+.search-wrap{
+  position:relative;
+  flex:1 1 320px;max-width:640px;
+}
+.search-field{position:relative}
+.search-wrap .search-ico{
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  width:19px;height:19px;color:var(--muted);pointer-events:none;transition:color .25s var(--ease);
+}
+.search-input{
+  width:100%;padding:15px 120px 15px 50px;
+  border-radius:var(--r-pill);border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);
+  font-size:15px;font-weight:500;font-family:inherit;
+  box-shadow:var(--shadow-s);
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+  -webkit-appearance:none;appearance:none;
+}
+.search-input::placeholder{color:var(--muted);font-weight:400}
+.search-input::-webkit-search-cancel-button{display:none}
+.search-wrap:focus-within .search-ico{color:var(--brand-600)}
+.search-input:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(245,179,1,.18), var(--shadow-s);
+}
+.search-clear{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  display:inline-flex;align-items:center;gap:6px;
+  height:34px;padding:0 14px;border-radius:var(--r-pill);
+  border:1px solid var(--line);background:var(--surface-2);
+  color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;
+  transition:.2s var(--ease);
+}
+.search-clear:hover{color:var(--ink);border-color:var(--accent)}
+.search-clear .ico{width:13px;height:13px}
+
+.search-status{
+  min-height:0;
+  font-size:14px;font-weight:600;color:var(--muted);
+  margin-bottom:14px;
+}
+.search-status:empty{margin-bottom:0}
+.search-status b{color:var(--brand-800)}
+[data-theme="dark"] .search-status b{color:var(--accent-2)}
+
+/* === TABS === */
+.tabs{
+  display:flex;gap:6px;flex-wrap:wrap;
+  margin-bottom:22px;padding:7px;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-s);
+}
+.tab-btn{
+  flex:1 1 auto;min-width:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 16px;border-radius:var(--r-md);
+  border:1px solid transparent;background:transparent;
+  color:var(--muted);font-weight:700;font-size:13.5px;
+  transition:.25s var(--ease);white-space:nowrap;
+}
+.tab-btn .ico{width:17px;height:17px;flex:0 0 auto;transition:.25s var(--ease)}
+.tab-btn:hover{color:var(--brand-800);background:var(--surface-2)}
+.tab-btn.active{
+  background:linear-gradient(140deg,var(--brand-600),var(--brand-800));
+  color:#fff;
+  box-shadow:0 8px 18px rgba(11,46,89,.24), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.tab-btn.active .ico{color:var(--accent)}
+[data-theme="dark"] .tab-btn:hover{color:var(--accent-2)}
+.tab-count{
+  font-size:11.5px;font-weight:700;line-height:1;
+  padding:4px 8px;border-radius:var(--r-pill);
+  background:var(--surface-2);color:var(--muted);
+  border:1px solid var(--line);
+}
+.tab-btn.active .tab-count{background:rgba(255,255,255,.18);color:#fff;border-color:transparent}
+.tab-btn.has-matches .tab-count{background:rgba(245,179,1,.22);color:#a37200;border-color:rgba(245,179,1,.5)}
+.tab-btn.no-matches{opacity:.45}
+.tab-btn.active.no-matches{opacity:.7}
+
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeUp .38s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.panel-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  box-shadow:var(--shadow-m);
+  overflow:hidden;
+}
+.table-scroll{max-height:78vh;overflow:auto;overscroll-behavior:contain}
+.table-scroll::-webkit-scrollbar{width:10px;height:10px}
+.table-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:3px solid var(--surface)}
+.table-scroll::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+table{width:100%;border-collapse:separate;border-spacing:0;min-width:760px}
+thead th{
+  position:sticky;top:0;z-index:5;
+  background:linear-gradient(140deg,var(--brand-600),var(--brand-800));
+  color:#fff;font-size:11.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;padding:15px 18px;white-space:nowrap;
+}
+thead th:first-child{padding-left:24px}
+thead th:last-child{padding-right:24px}
+tbody td{
+  padding:17px 18px;vertical-align:top;
+  border-bottom:1px solid var(--line-soft);
+  font-size:14.5px;color:var(--ink);
+}
+tbody td:first-child{padding-left:24px}
+tbody td:last-child{padding-right:24px}
+tbody tr{transition:background .18s var(--ease)}
+tbody tr:hover{background:var(--row-hover)}
+tbody tr:last-child td{border-bottom:none}
+
+.svc{display:flex;gap:12px;align-items:flex-start}
+.svc-ico{
+  flex:0 0 auto;width:38px;height:38px;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(140deg,rgba(21,74,138,.10),rgba(245,179,1,.14));
+  color:var(--brand-600);
+  border:1px solid var(--line);
+  transition:.25s var(--ease);
+}
+.svc-ico .ico{width:19px;height:19px}
+tbody tr:hover .svc-ico{
+  background:linear-gradient(140deg,var(--brand-600),var(--brand-800));
+  color:var(--accent);border-color:transparent;transform:scale(1.05);
+}
+.svc-name{font-weight:600;line-height:1.4;min-width:220px}
+.svc-sub{display:block;font-weight:500;color:var(--muted);font-size:12.8px;margin-top:3px}
+
+.price-cell{font-weight:800;color:var(--brand-800);white-space:nowrap;font-size:15px}
+[data-theme="dark"] .price-cell{color:var(--accent-2)}
+.note{color:var(--muted);font-size:13px;line-height:1.5;max-width:340px}
+.term{
+  display:inline-flex;align-items:center;gap:6px;
+  font-weight:600;font-size:13px;color:var(--muted);white-space:nowrap;
+}
+.term .ico{width:14px;height:14px;color:var(--accent)}
+
+ul.spec{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+ul.spec li{
+  padding-bottom:6px;border-bottom:1px dashed var(--line);
+  font-size:13.5px;line-height:1.35;
+}
+ul.spec li:last-child{border-bottom:none;padding-bottom:0}
+ul.spec-price li{
+  font-weight:800;color:var(--brand-800);white-space:nowrap;font-size:14.5px;
+}
+[data-theme="dark"] ul.spec-price li{color:var(--accent-2)}
+
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 9px;border-radius:var(--r-pill);margin-left:9px;
+  vertical-align:middle;white-space:nowrap;
+}
+.badge-hit{background:rgba(15,157,110,.13);color:var(--success);border:1px solid rgba(15,157,110,.3)}
+.badge-sale{background:rgba(245,179,1,.18);color:#8a5a00;border:1px solid rgba(245,179,1,.5)}
+[data-theme="dark"] .badge-sale{color:#FFC933}
+[data-theme="dark"] .badge-hit{color:#4FD8A6}
+
+mark{background:rgba(245,179,1,.4);color:inherit;border-radius:4px;padding:0 3px}
+
+.empty-state{padding:60px 24px;text-align:center;color:var(--muted)}
+.empty-state .empty-ico{
+  width:60px;height:60px;margin:0 auto 14px;border-radius:20px;
+  display:grid;place-items:center;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--muted);
+}
+.empty-state .empty-ico .ico{width:26px;height:26px}
+.empty-state h3{margin:0 0 6px;font-size:16px;color:var(--ink);font-weight:700}
+.empty-state p{margin:0;font-size:14px}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.process-step{
+  text-align:center;padding:32px 22px;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-s);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.process-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-m)}
+.step-num{
+  width:58px;height:58px;margin:0 auto 16px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:linear-gradient(140deg,var(--brand-600),var(--brand-800));
+  color:var(--accent);font-size:22px;font-weight:900;
+  border:3px solid var(--accent);
+  box-shadow:0 8px 22px rgba(11,46,89,.24);
+}
+.process-step h4{font-size:15.5px;font-weight:800;color:var(--ink);margin:0 0 8px}
+.process-step p{color:var(--muted);font-size:13.5px;margin:0;line-height:1.55}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{
+  background:linear-gradient(140deg,var(--brand-800),var(--brand-900) 65%);
+  color:#fff;padding:96px 0;
+  position:relative;overflow:hidden;
+}
+.contact::after{
+  content:"";position:absolute;left:-120px;bottom:-140px;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle, rgba(245,179,1,.18), transparent 65%);
+  pointer-events:none;
+}
+.contact-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  max-width:var(--container);margin:0 auto;padding:0 20px;
+}
+.contact-info h2{
+  font-size:clamp(26px,3vw,38px);font-weight:900;text-transform:uppercase;
+  letter-spacing:-.02em;margin:0 0 18px;
+}
+.contact-info h2 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--accent-2),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.contact-info > p{color:#b8c9e0;margin:0 0 32px;font-size:16px}
+.contact-item{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start}
+.contact-icon{
+  width:46px;height:46px;flex:0 0 auto;
+  border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--accent-2),var(--accent));
+  color:var(--accent-ink);
+}
+.contact-icon .ico{width:20px;height:20px;stroke-width:1.7}
+.contact-item strong{
+  display:block;color:#fff;margin-bottom:3px;
+  font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+}
+.contact-item span, .contact-item a{
+  color:#d6e3f5;font-size:15.5px;font-weight:600;
+}
+.contact-item a{transition:color .25s var(--ease)}
+.contact-item a:hover{color:var(--accent)}
+
+.tg-block{
+  background:rgba(42,171,238,.1);
+  border:1px solid rgba(42,171,238,.32);
+  border-radius:var(--r-lg);padding:22px;margin-top:14px;
+}
+.tg-block h4{
+  color:#fff;font-size:15px;margin:0 0 14px;
+  display:flex;align-items:center;gap:10px;font-weight:700;
+}
+.tg-block h4 svg{width:22px;height:22px;color:var(--telegram);flex:0 0 auto}
+.tg-list{display:flex;flex-direction:column;gap:10px}
+.tg-link{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:var(--r-md);
+  background:var(--telegram);color:#fff;
+  transition:.25s var(--ease);font-weight:600;
+}
+.tg-link:hover{background:var(--telegram-h);transform:translateX(4px)}
+.tg-link svg{width:22px;height:22px;flex:0 0 auto;color:#fff}
+.tg-link .link-text{display:flex;flex-direction:column;line-height:1.25}
+.tg-link .link-title{font-size:13.5px;font-weight:700}
+.tg-link .link-desc{font-size:11.5px;opacity:.9;font-weight:400}
+
+.contact-form{
+  background:var(--surface);color:var(--ink);
+  padding:38px;border-radius:var(--r-xl);
+  box-shadow:var(--shadow-l);
+}
+.contact-form h3{font-size:22px;font-weight:900;color:var(--ink);margin:0 0 6px}
+.contact-form > p{color:var(--muted);font-size:13.5px;margin:0 0 22px}
+.form-group{margin-bottom:14px}
+.form-group label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;padding:13px 16px;
+  border:1px solid var(--line);border-radius:var(--r-md);
+  font-family:inherit;font-size:14.5px;
+  background:var(--surface-2);color:var(--ink);
+  transition:border-color .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  outline:none;border-color:var(--accent);
+  background:var(--surface);
+  box-shadow:0 0 0 4px rgba(245,179,1,.16);
+}
+.form-group textarea{resize:vertical;min-height:96px}
+.checkbox-group{
+  display:flex;gap:10px;align-items:flex-start;
+  margin:14px 0 18px;font-size:12.5px;color:var(--muted);line-height:1.5;
+}
+.checkbox-group input{margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--accent)}
+.checkbox-group a{color:var(--brand-600);text-decoration:underline}
+[data-theme="dark"] .checkbox-group a{color:var(--accent-2)}
+.contact-form .btn{width:100%}
+.form-status{
+  margin-top:14px;padding:13px 16px;border-radius:var(--r-md);
+  font-size:13.5px;font-weight:600;display:none;line-height:1.5;
+}
+.form-status.success{background:rgba(15,157,110,.14);color:var(--success);display:block;border-left:4px solid var(--success)}
+.form-status.error{background:rgba(229,57,53,.12);color:var(--error);display:block;border-left:4px solid var(--error)}
+.form-status.info{background:rgba(21,74,138,.1);color:var(--brand-600);display:block;border-left:4px solid var(--brand-600)}
+[data-theme="dark"] .form-status.info{color:var(--accent-2)}
+
+.hp-field{
+  position:absolute !important;
+  width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);border:0;
+  clip-path:inset(50%);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--brand-900);color:#7a8fa8;
+  padding:52px 0 22px;
+}
+.footer-inner{
+  max-width:var(--container);margin:0 auto;padding:0 20px;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:36px;margin-bottom:34px;
+}
+.footer-col h4{
+  color:#fff;margin:0 0 16px;font-size:12.5px;
+  text-transform:uppercase;letter-spacing:.14em;font-weight:800;
+}
+.footer-col p, .footer-col a{
+  color:#7a8fa8;font-size:14px;line-height:1.9;display:block;
+  transition:color .25s var(--ease);
+}
+.footer-col a:hover{color:var(--accent)}
+.footer-logo{
+  font-size:20px;font-weight:900;color:#fff;
+  margin-bottom:12px;letter-spacing:.02em;
+}
+.footer-logo span{color:var(--accent)}
+.footer-tg-links{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.footer-tg-link{
+  display:flex;align-items:center;gap:8px;
+  color:var(--telegram);font-weight:600;font-size:14px;
+  transition:.25s var(--ease);
+}
+.footer-tg-link:hover{color:#229ED9;transform:translateX(4px)}
+.footer-tg-link svg{width:18px;height:18px;color:currentColor}
+.footer-bottom{
+  max-width:var(--container);margin:0 auto;padding:20px 20px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;font-size:12.5px;color:#7a8fa8;
+}
+.footer-bottom a{color:var(--accent);text-decoration:underline}
+
+/* ============================================================
+   МОДАЛ
+   ============================================================ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(11,46,89,.86);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  z-index:2000;display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-overlay.active{display:flex}
+.modal{
+  background:var(--surface);color:var(--ink);
+  max-width:720px;width:100%;max-height:85vh;overflow-y:auto;
+  padding:40px;border-radius:var(--r-xl);position:relative;
+  box-shadow:var(--shadow-l);
+}
+.modal h2{color:var(--ink);margin:0 0 18px;font-size:22px;font-weight:900}
+.modal h3{color:var(--brand-600);margin:22px 0 8px;font-size:15px;font-weight:800}
+[data-theme="dark"] .modal h3{color:var(--accent-2)}
+.modal p, .modal li{color:var(--ink);font-size:14px;margin:0 0 10px;line-height:1.6}
+.modal ul{margin:0 0 14px 20px;padding:0}
+.modal-close{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;
+  background:var(--surface-2);border:1px solid var(--line);
+  border-radius:50%;color:var(--ink);
+  display:grid;place-items:center;font-size:18px;line-height:1;
+  transition:.25s var(--ease);
+}
+.modal-close:hover{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+
+/* ============================================================
+   SCROLL TOP
+   ============================================================ */
+.scroll-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--accent-2),var(--accent));
+  color:var(--accent-ink);
+  display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:.28s var(--ease);z-index:70;
+  box-shadow:var(--shadow-glow);
+}
+.scroll-top.visible{opacity:1;visibility:visible;transform:none}
+.scroll-top:hover{transform:translateY(-3px)}
+.scroll-top .ico{width:22px;height:22px;stroke-width:2.2}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1100px){
+  .phone-link span{display:none}
+  .phone-link{padding:11px}
+  .nav{gap:0}
+  .nav a{padding:8px 10px;font-size:13.5px}
+}
+@media (max-width:980px){
+  .nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:4px;
+    background:var(--surface);padding:14px 20px 20px;
+    box-shadow:var(--shadow-m);
+    border-bottom:1px solid var(--line);
   }
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 30px; }
-    .hero { padding: 60px 5%; min-height: auto; }
-    .section { padding: 60px 5%; }
-    .service-block { padding: 50px 5%; }
-    .contact-form { padding: 24px; }
-    .modal { padding: 24px; }
-    .stat-num { font-size: 36px; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .buttons { flex-direction: column; }
-    .btn { width: 100%; }
+  .nav.open{display:flex}
+  .nav a{padding:12px 14px;font-size:15px}
+  .burger{display:flex}
+  .services-split{grid-template-columns:1fr;margin-top:-30px;margin-bottom:40px}
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .logo-sub{display:none}
+  .hero{padding:60px 0 60px}
+  .section{padding:72px 0}
+}
+@media (max-width:920px){
+  table{min-width:0}
+  thead{display:none}
+  .table-scroll{max-height:none;overflow:visible}
+  table, tbody, tr, td{display:block;width:100%}
+  tbody tr{padding:18px;border-bottom:1px solid var(--line);background:transparent}
+  tbody tr:last-child{border-bottom:none}
+  tbody tr:hover{background:var(--row-hover)}
+  tbody td{padding:0;border:none;max-width:none}
+  tbody td:first-child{padding:0 0 12px}
+  tbody td[data-label]:not(:first-child){
+    display:flex;gap:14px;padding:7px 0;
+    border-top:1px dashed var(--line-soft);font-size:14px;
   }
-  
-  @media print {
-    .topbar, .header, .scroll-top, .buttons, .contact-form, .burger, .modal-overlay { display: none !important; }
-    body { color: #000; background: #fff; }
-    .hero { background: var(--dark-blue) !important; color: #fff !important; min-height: auto; padding: 30px; }
-    .section, .contact, .stats { padding: 30px 5%; }
-    a { text-decoration: underline; color: #000 !important; }
+  tbody td[data-label]:not(:first-child)::before{
+    content:attr(data-label);
+    flex:0 0 108px;font-size:10.5px;font-weight:800;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+    padding-top:4px;
   }
+  .price-cell{font-size:15.5px}
+  .note{max-width:none;text-align:left}
+  .svc-ico{width:34px;height:34px;border-radius:10px}
+  .svc-ico .ico{width:17px;height:17px}
+  .svc-name{min-width:0;font-size:15px}
+}
+@media (max-width:640px){
+  .container{padding:0 18px}
+  .header-inner{padding:10px 16px}
+  .logo-mark{width:38px;height:38px}
+  .logo-text{font-size:15px}
+  .hero h1{font-size:32px}
+  .hero-actions .btn{flex:1 1 100%}
+
+  .section{padding:52px 0}
+  .section-title{margin-bottom:36px;padding:0 8px}
+  .section-title p{font-size:15.5px;padding:0 12px}
+
+  .service-block{padding:38px 26px}
+  .services-split{margin-bottom:32px}
+  .contact-form{padding:26px}
+  .modal{padding:24px}
+  .footer-inner{grid-template-columns:1fr}
+
+  .stats{padding:48px 0}
+  .stats-inner{
+    grid-template-columns:1fr 1fr;
+    gap:26px 14px;
+    padding:0 16px;
+  }
+  .stat-item{padding:4px}
+  .stat-num{font-size:30px}
+  .stat-label{font-size:10.5px;letter-spacing:.1em;margin-top:8px}
+
+  .icon-btn{border-radius:50%}
+
+  .btn-primary{
+    box-shadow:0 6px 14px rgba(245,179,1,.24),
+               0 10px 24px rgba(245,179,1,.18);
+  }
+  .btn-primary:hover{
+    box-shadow:0 8px 18px rgba(245,179,1,.32);
+  }
+
+  .price-toolbar{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .search-wrap{
+    max-width:none;
+    flex:0 0 auto;
+    width:100%;
+  }
+  .search-input{padding:15px 56px 15px 50px}
+  .search-clear{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    width:38px;height:38px;padding:0;
+    border-radius:50%;
+    justify-content:center;
+  }
+  .search-clear span{display:none}
+  .search-clear .ico{width:15px;height:15px}
+
+  .tabs{border-radius:var(--r-md);margin-bottom:18px}
+  .tab-btn{flex:1 1 100%}
+
+  .price-section{padding-bottom:80px}
+  .footer{padding-bottom:96px}
+  .scroll-top{
+    width:40px;height:40px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+  .scroll-top .ico{width:16px;height:16px;stroke-width:2.4}
+}
+
+@media (max-width:400px){
+  .search-input::placeholder{font-size:13.5px}
+}
+
+/* ============================================================
+   DARK THEME READABILITY FIXES
+   ============================================================ */
+
+/* 1. Иконки: --brand-600 не виден на тёмном фоне */
+[data-theme="dark"] .svc-ico,
+[data-theme="dark"] .adv-icon{
+  background:linear-gradient(140deg,rgba(42,171,238,.15),rgba(245,179,1,.18));
+  color:var(--accent-2);
+  border-color:rgba(245,179,1,.22);
+}
+[data-theme="dark"] .service-block.cadastral .icon-circle{
+  background:linear-gradient(140deg,rgba(42,171,238,.15),rgba(245,179,1,.18));
+  color:var(--accent-2);
+  border-color:rgba(245,179,1,.22);
+}
+[data-theme="dark"] .phone-link .ico{color:var(--accent-2)}
+[data-theme="dark"] .search-wrap:focus-within .search-ico{color:var(--accent-2)}
+[data-theme="dark"] tbody tr:hover .svc-ico{
+  background:linear-gradient(140deg,var(--brand-500),var(--brand-700));
+  color:var(--accent);
+  border-color:transparent;
+}
+
+/* 2. Контурные кнопки и поля — заметнее границы */
+[data-theme="dark"] .btn-outline{
+  border-color:#2F425E;
+  background:rgba(255,255,255,.03);
+}
+[data-theme="dark"] .btn-outline:hover{
+  border-color:var(--accent);
+  background:rgba(245,179,1,.08);
+}
+[data-theme="dark"] .search-input,
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select{
+  border-color:#2F425E;
+}
+
+/* 3. Счётчики на табах — выше контраст */
+[data-theme="dark"] .tab-count{
+  background:rgba(255,255,255,.07);
+  color:#C9D6E8;
+  border-color:rgba(255,255,255,.12);
+}
+[data-theme="dark"] .tab-btn.active .tab-count{
+  background:rgba(255,255,255,.22);
+  color:#fff;
+}
+
+/* 4. Заголовок таблицы на десктопе — свежее */
+[data-theme="dark"] thead th{
+  background:linear-gradient(140deg, #23517F 0%, #0E1B2E 100%);
+}
+
+/* 5. Рамки иконок в шапке — заметнее */
+[data-theme="dark"] .icon-btn,
+[data-theme="dark"] .phone-link{
+  border-color:#2F425E;
+}
+
+/* 6. Бейджи «Хит» / «Акция» — читаемее */
+[data-theme="dark"] .badge-hit{
+  background:rgba(79,216,166,.14);
+  border-color:rgba(79,216,166,.38);
+}
+[data-theme="dark"] .badge-sale{
+  background:rgba(255,201,51,.16);
+  border-color:rgba(255,201,51,.4);
+}
+
+/* 7. Плейсхолдеры — чуть светлее */
+[data-theme="dark"] .search-input::placeholder,
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder{
+  color:#7C8FA8;
+}
+
+/* ============================================================
+   FINAL POLISH PATCH
+   ============================================================ */
+
+/* 1. Уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* 2. Якорные секции не заезжают под sticky-хедер */
+section[id]{scroll-margin-top:96px}
+@media (max-width:980px){ section[id]{scroll-margin-top:80px} }
+
+@media print{
+  body{background:#fff}
+  body::before{display:none}
+  .site-header,.burger,.scroll-top,.hero-actions,.tabs,.price-toolbar,
+  .contact-form,.search-wrap,.search-status,.section-title .eyebrow,
+  .contact,.footer,.modal-overlay,.tg-block,.hero-chips{display:none !important}
+  .tab-content{display:block !important;page-break-inside:auto}
+  .tab-content::before{
+    content:attr(data-title);display:block;
+    font-size:17px;font-weight:800;margin:24px 0 12px;color:#0B2E59;
+  }
+  .panel-card{box-shadow:none;border:none}
+  .table-scroll{max-height:none;overflow:visible}
+  table{min-width:0}
+  thead th{position:static;background:#0B2E59 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  tbody tr{page-break-inside:avoid}
+  a{text-decoration:none;color:#000 !important}
+}
 </style>
 </head>
 <body>
 
 <a href="#main" class="skip-link">Перейти к содержимому</a>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-left">
-    <span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      ул. Чертановская 1к1, Москва, 117648
-    </span>
-    <span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Круглосуточно
-    </span>
-  </div>
-  <div class="topbar-right">
-    <a href="mailto:mashproekt77@yandex.ru" aria-label="Написать на почту">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      mashproekt77@yandex.ru
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.2c1.1.4 2.3.6 3.6.6a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.6 3.57a1 1 0 01-.25 1.02z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 012-2h7a2 2 0 012 2v16"/><path d="M15 9h3a2 2 0 012 2v10"/><path d="M2 21h20"/><path d="M8 7h3M8 11h3M8 15h3"/></symbol>
+  <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="1.3"/></symbol>
+  <symbol id="i-file-plus" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6M9 15h6"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z"/><path d="M9.2 12.2l2 2 3.6-3.8"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M15.5 2.5l6 6-13 13-6-6z"/><path d="M7.5 13.5l2 2M10.5 10.5l2 2M13.5 7.5l2 2"/></symbol>
+  <symbol id="i-road" viewBox="0 0 24 24"><path d="M6 21L8.5 3M18 21L15.5 3"/><path d="M12 4v3M12 11v3M12 18v3"/></symbol>
+  <symbol id="i-pipe" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.4 6H14a4 4 0 014 4v5.6"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><path d="M3 8h4M11 8h4M19 8h2M3 16h2M9 16h4M17 16h4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.6"/><circle cx="12" cy="12" r=".9"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-2.7-6.5"/><path d="M21 4v5h-5"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4l6 2.2 6-2.2v14l-6 2.2-6-2.2-6 2.2v-14z"/><path d="M9 4v14.2M15 6.2V20.4"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 3l5 7h-3l4 6H6l4-6H7z"/><path d="M12 16v5"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/><path d="M6 15.6V12a4 4 0 014-4h4"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4.6 5 9a5 5 0 01-10 0c0-2 1-3.6 2-4.6.5 1.5 1.5 2 1.5 2S10 6 12 3z"/></symbol>
+  <symbol id="i-water" viewBox="0 0 24 24"><path d="M3 9c1.6-1.8 3.2-1.8 4.8 0s3.2 1.8 4.8 0 3.2-1.8 4.8 0 2.4 1.2 3.6.6"/><path d="M3 15c1.6-1.8 3.2-1.8 4.8 0s3.2 1.8 4.8 0 3.2-1.8 4.8 0 2.4 1.2 3.6.6"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 7h10v10H3z"/><path d="M13 10h4l4 3.5V17h-8"/><circle cx="7" cy="18.6" r="1.6"/><circle cx="17" cy="18.6" r="1.6"/></symbol>
+  <symbol id="i-split" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16" stroke-dasharray="3 3"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3.2-3.2M20 16H7l3.2 3.2"/></symbol>
+  <symbol id="i-merge" viewBox="0 0 24 24"><path d="M6 4v5a4 4 0 004 4h6"/><path d="M6 20v-5"/><path d="M14 10l3 3-3 3"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0112 0"/><path d="M16 5.4a3 3 0 010 5.8M17.5 20a6.2 6.2 0 00-2-4.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="M13.5 3.5l7 7-2.6 2.6-7-7z"/><path d="M11 6.5L3.6 13.9a2 2 0 000 2.8l3.7 3.7a2 2 0 002.8 0L17.5 13"/></symbol>
+  <symbol id="i-tower" viewBox="0 0 24 24"><path d="M12 3v18M8 21h8"/><path d="M6 7h12M7.5 12h9"/><path d="M12 3l-4 4M12 3l4 4"/></symbol>
+  <symbol id="i-apartment" viewBox="0 0 24 24"><path d="M4 21V6l8-3 8 3v15"/><path d="M9 21v-5h6v5"/><path d="M8 9h2M14 9h2M8 13h2M14 13h2"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9"/><path d="M4.5 9v11h15V9"/><path d="M9 20v-6h6v6"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M10 10v10"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8 7.5L20 18M8 16.5L20 6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4"/><path d="M4 16h16"/><circle cx="7.5" cy="17.6" r="1.6"/><circle cx="16.5" cy="17.6" r="1.6"/></symbol>
+  <symbol id="i-garage" viewBox="0 0 24 24"><path d="M3 21V9l9-5 9 5v12"/><path d="M7 21v-7h10v7"/><path d="M7 17h10"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="4.2"/><path d="M11.2 11.2L20 20M17 17l2-2M14 14l2-2"/></symbol>
+  <symbol id="i-file-x" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 13l5 5M14.5 13l-5 5"/></symbol>
+  <symbol id="i-file-check" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></symbol>
+  <symbol id="i-file-search" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h5"/><path d="M14 3v5h5"/><circle cx="17" cy="17" r="3"/><path d="M19.3 19.3L22 22"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10"/><path d="M12 6L6 8M12 6l6 2"/><path d="M3 14.5l3-6.5 3 6.5a3 3 0 01-6 0zM15 14.5l3-6.5 3 6.5a3 3 0 01-6 0z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 10-12 0c0 6-2 7-2 7h16s-2-1-2-7z"/><path d="M10.4 20a2 2 0 003.2 0"/></symbol>
+  <symbol id="i-bell-off" viewBox="0 0 24 24"><path d="M18 9a6 6 0 00-9.4-5"/><path d="M6.2 6.2A6 6 0 006 9c0 6-2 7-2 7h12.5"/><path d="M10.4 20a2 2 0 003.2 0"/><path d="M3 3l18 18"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/><path d="M3 12h18"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0115 0"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l2.5-7 4 14L16 12h5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M4 17a8 8 0 0116 0"/><path d="M2 17h20"/><path d="M10 9.6V6a2 2 0 014 0v3.6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 001 1h12a1 1 0 001-1V8"/><path d="M10 12h4"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+    <path d="M21.95 4.3c-.2-.9-1.1-1.5-2-1.2L2.9 10.1c-.6.2-1 .7-1 1.3s.3 1.1.9 1.3l4.4 1.4 1.7 5.1c.2.5.6.9 1.1 1 .5.2 1 .1 1.4-.2l2.5-2.1 4.6 3.4c.4.3.9.4 1.3.2.5-.1.8-.5.9-1l2.3-14.9c.1-.4 0-.8-.2-1.1zM9.5 13.9l-.2 3.6-1.4-4.2 9.5-6.1-7.9 6.7z"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="МАШПРОЕКТ77 — на главную">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 84 V48 L50 22 L80 48 V84 Z" fill="var(--surface-2)" stroke="#1a1a1a" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M15 52 L50 22 L85 52" fill="none" stroke="#F5B301" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 52 L50 22 L85 52" fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="42.5" y="60" width="15" height="24" fill="#F5B301" stroke="#1a1a1a" stroke-width="4"/>
+        <path d="M68 44 C68 32 74 24 76 24 C76 30 82 34 82 44 C82 50 78 54 74 54 C71 54 68 50 68 44 Z"
+              fill="#2AABEE" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M72 46 C72 40 74.5 36 74.5 36 C76 40 77.5 42 77.5 46 C77.5 49 76 50 74.5 50 C73 50 72 48 72 46 Z"
+              fill="#8FD4FF"/>
+      </svg>
+      <span class="logo-text">МАШПРОЕКТ<b>77</b>
+        <span class="logo-sub">Кадастр · Геодезия · Газоснабжение</span>
+      </span>
     </a>
-    <a href="tel:+79309450860" aria-label="Позвонить">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
-      +7 (930) 945-08-60
-    </a>
-    <div class="telegram-links-topbar">
-      <a href="https://t.me/pereplanirovka77" class="telegram-link-topbar" target="_blank" rel="noopener noreferrer" aria-label="Наша группа в Telegram">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="display:inline"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Группа
+    <div class="header-spacer"></div>
+    <nav class="nav" id="mainNav" aria-label="Главное меню">
+      <a href="#services">Услуги</a>
+      <a href="#price">Прайс</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#process">Этапы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="phone-link" href="tel:+79309450860" aria-label="Позвонить">
+        <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span>+7 930 945-08-60</span>
       </a>
-      <a href="https://t.me/pereplanirovka77_bot" class="telegram-link-topbar" target="_blank" rel="noopener noreferrer" aria-label="Наш бот Андрей в Telegram">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="display:inline"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-        Бот Андрей
-      </a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Переключить тему" title="Светлая / тёмная тема">
+        <svg class="ico" id="themeIcon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-</div>
-
-<!-- HEADER -->
-<header class="header">
-  <a href="#" class="logo" aria-label="Машпроект77 — на главную">
-    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M10 55 L30 30 L50 30 L70 50 L85 50 L85 70 L10 70 Z" fill="#f5a623"/>
-      <path d="M30 30 L50 30 L70 50 L85 50 L85 70 L50 70 L50 50 L30 50 Z" fill="#0a2e5c"/>
-      <rect x="40" y="42" width="8" height="8" fill="#0a2e5c"/>
-      <rect x="50" y="42" width="8" height="8" fill="#0a2e5c"/>
-      <rect x="40" y="52" width="8" height="8" fill="#0a2e5c"/>
-      <rect x="50" y="52" width="8" height="8" fill="#0a2e5c"/>
-      <path d="M65 45 Q65 25 75 15 Q85 25 85 45 Q85 55 75 60 Q65 55 65 45 Z" fill="#4a90d9"/>
-      <path d="M70 48 Q70 35 75 28 Q80 35 80 48 Q80 53 75 55 Q70 53 70 48 Z" fill="#1a4a8a"/>
-      <path d="M73 50 Q73 42 75 38 Q77 42 77 50 Q77 52 75 53 Q73 52 73 50 Z" fill="#f5a623"/>
-    </svg>
-    <div class="logo-text">МАШПРОЕКТ<span>77</span></div>
-  </a>
-  <nav class="nav" id="mainNav" aria-label="Главное меню">
-    <a href="#services">Услуги</a>
-    <a href="#advantages">Преимущества</a>
-    <a href="#process">Этапы</a>
-    <a href="#contact">Контакты</a>
-  </nav>
-  <a href="tel:+79309450860" class="header-phone" aria-label="Позвонить +7 930 945 08 60">+7 (930) 945-08-60</a>
-  <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </header>
 
 <main id="main">
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Кадастровые инженеры · Проектировщики</div>
-    <h1>Надёжные решения <span>для вашего проекта</span></h1>
-    <div class="hero-subtitle">Кадастровые работы и проектирование газоснабжения в Москве и МО</div>
-    <p>Выполняем межевание, технические планы, проекты газоснабжения любой сложности. Согласование «под ключ» в Мосгазе и Росреестре. Работаем по СНиП, СП и ГОСТ.</p>
-    <div class="buttons">
-      <a href="#contact" class="btn btn-primary">Получить расчёт</a>
-      <a href="#services" class="btn btn-outline">Наши услуги</a>
-      <a href="https://t.me/pereplanirovka77_bot" class="btn btn-telegram" target="_blank" rel="noopener noreferrer">
-        🤖 Робот Андрей
-      </a>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="dot"></span> Кадастровые инженеры · Проектировщики</div>
+      <h1>Надёжные решения <em>для вашего проекта</em></h1>
+      <div class="hero-sub">Кадастровые работы, геодезия и проектирование газоснабжения в Москве и МО</div>
+      <p>Межевание, технические планы, топосъёмка, проекты газоснабжения любой сложности. Согласование «под ключ» в Мосгазе, Росреестре и надзорных органах. Работаем по СНиП, СП и ГОСТ с 2014 года.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+          Получить расчёт
+        </a>
+        <a href="#price" class="btn btn-ghost btn-lg">
+          <svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>
+          Смотреть прайс
+        </a>
+        <a href="https://t.me/pereplanirovka77_bot" target="_blank" rel="noopener noreferrer" class="btn btn-telegram btn-lg">
+          <svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>
+          Робот Андрей
+        </a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Договор и акты</span>
+        <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Смета за 15 минут</span>
+        <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Работаем с 2014 года</span>
+        <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Выезд по Москве и МО</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES SPLIT -->
-<section id="services" class="services-split">
-  <div class="service-block cadastral">
-    <div class="icon-circle" aria-hidden="true">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0a2e5c" stroke-width="2">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
+<div class="container">
+  <section id="services" class="services-split">
+    <div class="service-block cadastral">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M10 21v-6h4v6"/></svg>
+      </div>
+      <h2>Кадастровые инженеры</h2>
+      <ul class="service-list">
+        <li>Межевание земельных участков</li>
+        <li>Технические планы зданий и сооружений</li>
+        <li>Кадастровые работы любой сложности</li>
+        <li>Подготовка документов для Росреестра</li>
+        <li>Уточнение границ и площади участков</li>
+        <li>Исправление реестровых ошибок</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Заказать услугу</a>
     </div>
-    <h2>Кадастровые инженеры</h2>
-    <ul class="service-list">
-      <li>Межевание земельных участков</li>
-      <li>Технические планы зданий и сооружений</li>
-      <li>Кадастровые работы любой сложности</li>
-      <li>Подготовка документов для Росреестра</li>
-      <li>Уточнение границ и площади участков</li>
-    </ul>
-    <a href="#contact" class="btn">Заказать услугу</a>
-  </div>
-  <div class="service-block gas">
-    <div class="icon-circle" aria-hidden="true">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2">
-        <path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-6-6-12-6-12z"/>
-        <path d="M12 10c0 0-3 3-3 6a3 3 0 006 0c0-3-3-6-3-6z"/>
-      </svg>
+    <div class="service-block gas">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3s5 4.6 5 9a5 5 0 01-10 0c0-2 1-3.6 2-4.6.5 1.5 1.5 2 1.5 2S10 6 12 3z"/></svg>
+      </div>
+      <h2>Проектирование <span>газоснабжения</span></h2>
+      <ul class="service-list">
+        <li>Проекты газоснабжения жилых и промышленных объектов</li>
+        <li>Согласование в Мосгазе и Ростехнадзоре</li>
+        <li>Подключение к газовым сетям</li>
+        <li>Внутренние и наружные сети газоснабжения</li>
+        <li>Технические условия и техперевооружение</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Заказать проект</a>
     </div>
-    <h2>Проектирование <span>газоснабжения</span></h2>
-    <ul class="service-list">
-      <li>Проекты газоснабжения жилых и промышленных объектов</li>
-      <li>Согласование в Мосгазе и Ростехнадзоре</li>
-      <li>Подключение к газовым сетям</li>
-      <li>Внутренние и наружные сети газоснабжения</li>
-      <li>Технические условия и техническое перевооружение</li>
-    </ul>
-    <a href="#contact" class="btn btn-primary">Заказать проект</a>
+  </section>
+</div>
+
+<section class="stats" aria-label="Показатели компании">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">5.0</span><div class="stat-label">Рейтинг в Google</div></div>
+    <div class="stat-item"><span class="stat-num">100+</span><div class="stat-label">Реализованных проектов</div></div>
+    <div class="stat-item"><span class="stat-num">24/7</span><div class="stat-label">Режим работы</div></div>
+    <div class="stat-item"><span class="stat-num">СРО</span><div class="stat-label">Допуск к работам</div></div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats" aria-label="Статистика компании">
-  <div class="stat-item"><span class="stat-num">5.0</span><div class="stat-label">Рейтинг в Google</div></div>
-  <div class="stat-item"><span class="stat-num">100+</span><div class="stat-label">реализованных проектов</div></div>
-  <div class="stat-item"><span class="stat-num">24/7</span><div class="stat-label">режим работы</div></div>
-  <div class="stat-item"><span class="stat-num">СРО</span><div class="stat-label">допуск к работам</div></div>
-</section>
-
-<!-- ADVANTAGES -->
-<section class="section advantages" id="advantages">
-  <div class="section-title">
-    <h2>Почему выбирают нас</h2>
-    <p>Профессиональный подход к каждому проекту — от консультации до сдачи документации</p>
-    <div class="line"></div>
-  </div>
-  <div class="adv-grid">
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      </div>
-      <h3>Проектная документация</h3>
-      <p>Разрабатываем полный пакет документов в соответствии с действующими нормами и стандартами.</p>
+<section class="section" id="advantages">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Почему мы</span>
+      <h2>Наши <em>преимущества</em></h2>
+      <p>Профессиональный подход к каждому проекту — от консультации до сдачи документации</p>
+      <div class="line"></div>
     </div>
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div>
+        <h3>Проектная документация</h3>
+        <p>Разрабатываем полный пакет документов в соответствии с действующими нормами и стандартами.</p>
       </div>
-      <h3>Безопасность и нормы</h3>
-      <p>Все проекты соответствуют СНиП, СП и ГОСТ. Гарантируем безопасность и соответствие нормам.</p>
-    </div>
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-2.9 8.2-7 9.5-4.1-1.3-7-5.1-7-9.5V6z"/></svg></div>
+        <h3>Безопасность и нормы</h3>
+        <p>Все проекты соответствуют СНиП, СП и ГОСТ. Гарантируем безопасность и соответствие нормам.</p>
       </div>
-      <h3>Современные технологии</h3>
-      <p>Используем актуальное ПО для проектирования и геодезическое оборудование высокой точности.</p>
-    </div>
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+        <h3>Современные технологии</h3>
+        <p>Используем актуальное ПО для проектирования и геодезическое оборудование высокой точности.</p>
       </div>
-      <h3>Энергоэффективность</h3>
-      <p>Проектируем решения, которые снижают энергопотребление и эксплуатационные расходы.</p>
-    </div>
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+        <h3>Энергоэффективность</h3>
+        <p>Проектируем решения, которые снижают энергопотребление и эксплуатационные расходы.</p>
       </div>
-      <h3>Сжатые сроки</h3>
-      <p>Выполняем работы в оговорённые сроки. Срочные проекты — от 3 рабочих дней.</p>
-    </div>
-    <div class="adv-card">
-      <div class="adv-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Сжатые сроки</h3>
+        <p>Выполняем работы в оговорённые сроки. Срочные проекты — от 3 рабочих дней.</p>
       </div>
-      <h3>Согласование под ключ</h3>
-      <p>Берём на себя все согласования в Мосгазе, Росреестре и надзорных органах.</p>
+      <div class="adv-card">
+        <div class="adv-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Согласование под ключ</h3>
+        <p>Берём на себя все согласования в Мосгазе, Росреестре и надзорных органах.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section" id="process" style="background: var(--light);">
-  <div class="section-title">
-    <h2>Этапы работы</h2>
-    <p>Прозрачный процесс от первого звонка до готового проекта</p>
-    <div class="line"></div>
-  </div>
-  <div class="process-grid">
-    <div class="process-step"><div class="step-num">1</div><h4>Заявка и консультация</h4><p>Обсуждаем задачу, изучаем объект, определяем объём и стоимость работ</p></div>
-    <div class="process-step"><div class="step-num">2</div><h4>Выезд и замеры</h4><p>Инженер выезжает на объект, проводит замеры и собирает исходные данные</p></div>
-    <div class="process-step"><div class="step-num">3</div><h4>Разработка проекта</h4><p>Подготовка проектной и рабочей документации, кадастровых материалов</p></div>
-    <div class="process-step"><div class="step-num">4</div><h4>Согласование и сдача</h4><p>Согласование в контролирующих органах, передача готовых документов заказчику</p></div>
+<section class="section price-section" id="price">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Прайс-лист</span>
+      <h2>Стоимость <em>услуг</em></h2>
+      <p>Москва и Московская область. Фиксированная смета в договоре, официальные сроки, аттестованные инженеры.</p>
+      <div class="line"></div>
+    </div>
+
+    <div class="price-toolbar">
+      <div class="search-wrap">
+        <div class="search-field">
+          <svg class="ico search-ico" aria-hidden="true"><use href="#i-search"/></svg>
+          <input class="search-input" id="searchInput" type="search" autocomplete="off"
+                 placeholder="Поиск: технический план, межевание, вынос границ…"
+                 aria-label="Поиск по прайс-листу">
+        </div>
+        <button class="search-clear" id="searchClear" type="button" hidden>
+          <svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> <span>Сбросить</span>
+        </button>
+      </div>
+      <button class="btn btn-outline" type="button" id="printBtn">
+        <svg class="ico" aria-hidden="true"><use href="#i-print"/></svg>
+        Распечатать прайс
+      </button>
+    </div>
+    <div class="search-status" id="searchStatus" role="status" aria-live="polite"></div>
+
+    <div class="tabs" role="tablist" aria-label="Разделы прайс-листа">
+      <button class="tab-btn active" type="button" role="tab" id="tabbtn1" data-tab="tab1" aria-selected="true" aria-controls="tab1">
+        <svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg>
+        <span>Инженерные изыскания</span><span class="tab-count">0</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" id="tabbtn2" data-tab="tab2" aria-selected="false" aria-controls="tab2" tabindex="-1">
+        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span>Кадастр (земля)</span><span class="tab-count">0</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" id="tabbtn3" data-tab="tab3" aria-selected="false" aria-controls="tab3" tabindex="-1">
+        <svg class="ico" aria-hidden="true"><use href="#i-building"/></svg>
+        <span>Кадастр (ОКС)</span><span class="tab-count">0</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" id="tabbtn4" data-tab="tab4" aria-selected="false" aria-controls="tab4" tabindex="-1">
+        <svg class="ico" aria-hidden="true"><use href="#i-crosshair"/></svg>
+        <span>Геодезия</span><span class="tab-count">0</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" id="tabbtn5" data-tab="tab5" aria-selected="false" aria-controls="tab5" tabindex="-1">
+        <svg class="ico" aria-hidden="true"><use href="#i-file-plus"/></svg>
+        <span>Доп. услуги</span><span class="tab-count">0</span>
+      </button>
+    </div>
+
+    <section id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tabbtn1" data-title="Инженерные изыскания">
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th scope="col">Наименование вида работ</th>
+                <th scope="col">Единица измерения</th>
+                <th scope="col">Стоимость</th>
+                <th scope="col">Примечания</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-shield-check"/></svg></span><span class="svc-name">Проверка на соответствие границ участка по сведениям ЕГРН с их фактическим местоположением</span></div></td>
+                <td data-label="Ед. изм.">1 участок</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-ruler"/></svg></span><span class="svc-name">Кадастровая съёмка</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>1 участок</li><li>свыше 1 га</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>от 20 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Примечания" class="note">Стоимость зависит от площади и местоположения участка. Минимальная стоимость выезда — 20 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-pin"/></svg></span><span class="svc-name">Вынос границ земельного участка</span></div></td>
+                <td data-label="Ед. изм.">1 точка</td>
+                <td data-label="Стоимость" class="price-cell">от 1 000 руб. / точка</td>
+                <td data-label="Примечания" class="note">Минимальная стоимость выезда — 15 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-road"/></svg></span><span class="svc-name">Вынос дорог и элементов благоустройства<span class="svc-sub">для ландшафтного дизайна</span></span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-crosshair"/></svg></span><span class="svc-name">Вынос строительных осей</span></div></td>
+                <td data-label="Ед. изм.">1 ось</td>
+                <td data-label="Стоимость" class="price-cell">от 5 000 руб. / ось</td>
+                <td data-label="Примечания" class="note">Минимальная стоимость выезда — 20 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-pipe"/></svg></span><span class="svc-name">Вынос коммуникаций</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-dash"/></svg></span><span class="svc-name">Вынос в натуру «красных» линий</span></div></td>
+                <td data-label="Ед. изм.">1 точка</td>
+                <td data-label="Стоимость" class="price-cell">от 1 000 руб.</td>
+                <td data-label="Примечания" class="note">Минимальная стоимость выезда — 25 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-dash"/></svg></span><span class="svc-name">Вынос на местность линий отступа от «красных» линий</span></div></td>
+                <td data-label="Ед. изм.">1 выезд геодезистов</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-target"/></svg></span><span class="svc-name">Вынос проекта в натуру</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-refresh"/></svg></span><span class="svc-name">Восстановление поворотных точек границ земельного участка</span></div></td>
+                <td data-label="Ед. изм.">1 точка</td>
+                <td data-label="Стоимость" class="price-cell">от 1 000 руб.</td>
+                <td data-label="Примечания" class="note">Минимальная стоимость выезда — 20 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-map"/></svg></span><span class="svc-name">Топографическая съёмка<span class="badge badge-hit">Хит</span><span class="svc-sub">для физических и юридических лиц</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>физ. лица — до 800 кв. м</li><li>физ. лица — 801–1500 кв. м</li><li>физ. лица — более 1501 кв. м</li><li>юр. лица</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>индивидуально</li><li>индивидуально</li></ul></td>
+                <td data-label="Примечания" class="note">Отдельно оплачиваются согласования подземных коммуникаций. Стоимость зависит от площади, местоположения и наличия на территории строений, коммуникаций и зелёных насаждений.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-tree"/></svg></span><span class="svc-name">Топографическая съёмка под ландшафтный дизайн, М 1:200</span></div></td>
+                <td data-label="Ед. изм.">1 сотка</td>
+                <td data-label="Стоимость" class="price-cell">от 1 000 руб.</td>
+                <td data-label="Примечания" class="note">Минимальная стоимость выезда — 25 000 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-route"/></svg></span><span class="svc-name">Топографическая съёмка линейных объектов</span></div></td>
+                <td data-label="Ед. изм.">1 км</td>
+                <td data-label="Стоимость" class="price-cell">от 45 000 руб.</td>
+                <td data-label="Примечания" class="note">При ширине полосы съёмки 30 м.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-flame"/></svg></span><span class="svc-name">Топографическая съёмка для газификации</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-tree"/></svg></span><span class="svc-name">Подеревная топографическая съёмка местности</span></div></td>
+                <td data-label="Ед. изм.">1 га</td>
+                <td data-label="Стоимость" class="price-cell">от 35 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-pipe"/></svg></span><span class="svc-name">Определение местоположения подземных коммуникаций</span></div></td>
+                <td data-label="Ед. изм.">до 1 км</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-check"/></svg></span><span class="svc-name">Согласование топографической съёмки с эксплуатирующими организациями</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 30 000 руб. + платежи</td>
+                <td data-label="Примечания" class="note">Ориентировочно: МОЭСК — 18 000 руб., МОСОБЛГАЗ — 8 000 руб., РОСТЕЛЕКОМ — 6 700 руб., ВОЕНТЕЛЕКОМ — 4 370 руб.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-water"/></svg></span><span class="svc-name">Батиметрическая съёмка</span></div></td>
+                <td data-label="Ед. изм.">1 га</td>
+                <td data-label="Стоимость" class="price-cell">от 30 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-truck"/></svg></span><span class="svc-name">Определение перемещения объёмов земляных масс</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 30 000 руб.</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос или посмотрите другие разделы прайс-листа.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tabbtn2" data-title="Кадастровые работы (земельные участки)" hidden>
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr><th>Наименование вида работ</th><th>Единица измерения</th><th>Стоимость</th><th>Сроки</th><th>Примечания</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-pin"/></svg></span><span class="svc-name">Межевой план на уточнение границ ЗУ (межевание)<span class="badge badge-hit">Хит</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>участок до 800 кв. м</li><li>участок 801–1200 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Для участков ИЖС / ЛПХ, дачного строительства, СНТ, ДНТ.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-refresh"/></svg></span><span class="svc-name">Исправление реестровой (кадастровой) ошибки</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>участок до 800 кв. м</li><li>участок 801–1200 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Для участков ИЖС / ЛПХ, СНТ, ДНТ.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-plus"/></svg></span><span class="svc-name">Межевой план на первичное образование ЗУ из земель госсобственности</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>участок до 1000 кв. м</li><li>участок более 1000 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Стоимость зависит от площади и конфигурации участка.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-building"/></svg></span><span class="svc-name">Межевой план ЗУ под многоквартирным домом<span class="badge badge-sale">Акция</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 0,5 га</li><li>до 0,5 га (акция)</li><li>3 участка до 0,5 га</li><li>более 0,5 га</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>100 000 руб.</li><li>80 000 руб.</li><li>180 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 1 месяца</td>
+                <td data-label="Примечания" class="note">Стоимость зависит от площади и конфигурации участка.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-split"/></svg></span><span class="svc-name">Межевой план по разделу земельного участка</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>раздел до 1000 кв. м на 2 участка</li><li>более 1000 кв. м</li><li>на 3 и более / сложная конфигурация</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Без геодезических обмеров / с обмерами. Зависит от площади и количества участков.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-swap"/></svg></span><span class="svc-name">Межевой план по перераспределению земельных участков</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>2 участка до 2000 кв. м</li><li>более 2000 кв. м</li><li>с обмерами / сложные</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Без обмеров / с обмерами. Зависит от площади и количества участков.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-merge"/></svg></span><span class="svc-name">Межевой план по объединению земельных участков</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>образуемый до 2000 кв. м</li><li>более 2000 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и количества объединяемых участков.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-dash"/></svg></span><span class="svc-name">Образование части ЗУ (сервитут)</span></div></td>
+                <td data-label="Ед. изм.">1 участок</td>
+                <td data-label="Стоимость" class="price-cell">от 25 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и конфигурации сервитута.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-grid"/></svg></span><span class="svc-name">Схема расположения ЗУ на кадастровом плане территории</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 1500 кв. м, без обмеров</li><li>более 1500 кв. м, без обмеров</li><li>с геодезическими обмерами</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>15 000 руб.</li><li>20 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 7 раб. дней</td>
+                <td data-label="Примечания" class="note">Стоимость и срок зависят от площади и конфигурации участка.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-doc"/></svg></span><span class="svc-name">Схема расположения участка для получения разрешения на размещение объекта на землях муниципальной собственности</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 20 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и конфигурации участка.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-users"/></svg></span><span class="svc-name">Межевание земель общего пользования в СНТ / ДНТ</span></div></td>
+                <td data-label="Ед. изм.">1 товарищество</td>
+                <td data-label="Стоимость" class="price-cell">300 000 руб. + 3 000 руб. × кол-во участков</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td>
+                <td data-label="Примечания" class="note">Зависит от площади и конфигурации земель общего пользования.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-shield"/></svg></span><span class="svc-name">Графическое описание санитарно-защитной зоны (карта-план объекта землеустройства)</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 70 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td>
+                <td data-label="Примечания" class="note">Стоимость и сроки зависят от площади санитарно-защитной зоны.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-ruler"/></svg></span><span class="svc-name">Кадастровая съёмка земельного участка</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>1 участок</li><li>свыше 1 га</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>от 15 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 1 раб. дня</td>
+                <td data-label="Примечания" class="note">Минимум 15 000 руб. за выезд.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tabbtn3" data-title="Кадастровые работы (объекты капитального строительства)" hidden>
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr><th>Наименование вида работ</th><th>Единица измерения</th><th>Стоимость</th><th>Сроки</th><th>Примечания</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-home"/></svg></span><span class="svc-name">Технический план дачного, садового или ИЖД<span class="badge badge-hit">Хит</span><span class="svc-sub">первичная постановка на кадастровый учёт</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 100 кв. м</li><li>101–200 кв. м</li><li>201–250 кв. м</li><li>251–300 кв. м</li><li>от 301 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>30 000 руб.</li><li>35 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом геодезиста. Доп. постройка до 50 кв. м — 10 000 руб. при одновременном оформлении.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-hammer"/></svg></span><span class="svc-name">Технический план реконструкции дачного, садового или ИЖД</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 100 кв. м</li><li>101–200 кв. м</li><li>201–250 кв. м</li><li>251–300 кв. м</li><li>от 301 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>30 000 руб.</li><li>35 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом геодезиста для обмеров.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-building"/></svg></span><span class="svc-name">Технический план на нежилое здание<span class="svc-sub">первичная постановка, для юр. лиц</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 100 кв. м</li><li>более 100 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>50 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади здания.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-refresh"/></svg></span><span class="svc-name">Технический план уточнения местоположения границ нежилого здания<span class="svc-sub">для юр. лиц</span></span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 30 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади здания.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-tower"/></svg></span><span class="svc-name">Технический план сооружения</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>скважина</li><li>линейный объект</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>от 35 000 руб.</li><li>от 40 000 руб.</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера. Зависит от сложности.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-hammer"/></svg></span><span class="svc-name">Технический план объекта незавершённого строительства</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 25 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади объекта.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-apartment"/></svg></span><span class="svc-name">Технический план квартиры<span class="svc-sub">первичная постановка</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 50 кв. м</li><li>51–100 кв. м</li><li>101–200 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>25 000 руб.</li><li>35 000 руб.</li><li>45 000 руб.</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера для обмеров.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-store"/></svg></span><span class="svc-name">Технический план нежилого помещения<span class="svc-sub">первичная постановка</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 50 кв. м</li><li>51–100 кв. м</li><li>101–200 кв. м</li><li>201–300 кв. м</li><li>301–400 кв. м</li><li>401–500 кв. м</li><li>более 501 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>30 000 руб.</li><li>40 000 руб.</li><li>50 000 руб.</li><li>60 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера для обмеров.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-layout"/></svg></span><span class="svc-name">Технический план перепланировки квартиры / нежилого помещения</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 50 кв. м</li><li>51–100 кв. м</li><li>101–200 кв. м</li><li>201–300 кв. м</li><li>301–400 кв. м</li><li>401–500 кв. м</li><li>более 501 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>25 000 руб.</li><li>30 000 руб.</li><li>40 000 руб.</li><li>50 000 руб.</li><li>60 000 руб.</li><li>70 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера для обмеров.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-scissors"/></svg></span><span class="svc-name">Технический план части помещения<span class="svc-sub">для договора долгосрочной аренды</span></span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>часть до 100 кв. м</li><li>101–300 кв. м</li><li>301–1000 кв. м</li><li>более 1000 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>40 000 руб.</li><li>50 000 руб.</li><li>70 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Без обмеров. При перепланировке — отдельно.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-car"/></svg></span><span class="svc-name">Технический план машино-места</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 15 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-garage"/></svg></span><span class="svc-name">Технический план на гараж</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 15 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-key"/></svg></span><span class="svc-name">Технический план для ввода объекта в эксплуатацию</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 60 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и сложности.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-x"/></svg></span><span class="svc-name">Акт обследования<span class="svc-sub">снятие с кадастрового учёта ОКС</span></span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 15 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и сложности.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-ruler"/></svg></span><span class="svc-name">Обмер квартиры</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 50 кв. м</li><li>50–100 кв. м</li><li>100–150 кв. м</li><li>более 150 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>16 000 руб.</li><li>20 000 руб.</li><li>25 000 руб.</li><li>индивидуально</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>3 раб. дня</td>
+                <td data-label="Примечания" class="note">—</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-ruler"/></svg></span><span class="svc-name">Обмер нежилого помещения</span></div></td>
+                <td data-label="Ед. изм."><ul class="spec"><li>до 50 кв. м</li><li>50–100 кв. м</li><li>100–150 кв. м</li><li>более 150 кв. м</li><li>более 1000 кв. м</li></ul></td>
+                <td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>20 000 руб.</li><li>25 000 руб.</li><li>30 000 руб.</li><li>индивидуально</li><li>от 40 руб. / кв. м</li></ul></td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>3 раб. дня</td>
+                <td data-label="Примечания" class="note">Зависит от площади.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-layout"/></svg></span><span class="svc-name">Поэтажный план и экспликация помещения</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 15 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td>
+                <td data-label="Примечания" class="note">Зависит от площади и сложности.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab4" class="tab-content" role="tabpanel" aria-labelledby="tabbtn4" data-title="Геодезические услуги" hidden>
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr><th>Наименование вида работ</th><th>Единица измерения</th><th>Стоимость</th><th>Примечания</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-activity"/></svg></span><span class="svc-name">Геодезический мониторинг деформаций</span></div></td><td data-label="Ед. изм.">20 знаков</td><td data-label="Стоимость" class="price-cell">от 200 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-crosshair"/></svg></span><span class="svc-name">Геодезическая разбивка осей зданий</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 20 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-grid"/></svg></span><span class="svc-name">Геодезическая разбивочная основа (ГРО)</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 50 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-eye"/></svg></span><span class="svc-name">Геодезический контроль</span></div></td><td data-label="Ед. изм.">бригада</td><td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>от 25 000 руб. / день</li><li>от 350 000 руб. / месяц</li></ul></td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-helmet"/></svg></span><span class="svc-name">Геодезическое сопровождение строительства</span></div></td><td data-label="Ед. изм.">1 месяц — 20 выездов</td><td data-label="Стоимость" class="price-cell">от 300 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-road"/></svg></span><span class="svc-name">Сопровождение дорожного строительства</span></div></td><td data-label="Ед. изм.">1 день</td><td data-label="Стоимость" class="price-cell">от 20 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-map"/></svg></span><span class="svc-name">Исполнительная геодезическая съёмка строительных конструкций</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 20 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-map"/></svg></span><span class="svc-name">Выборочная геодезическая исполнительная съёмка</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 20 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-globe"/></svg></span><span class="svc-name">Геоподоснова земельного участка</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">индивидуально</td><td data-label="Примечания" class="note">Зависит от площади, местоположения, наличия строений, коммуникаций и зелёных насаждений.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-archive"/></svg></span><span class="svc-name">Архивная геоподоснова земельного участка</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 40 000 руб.</td><td data-label="Примечания" class="note">При условии стоимости от 15 000 руб. за 1 га.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-layers"/></svg></span><span class="svc-name">Геология участка</span></div></td><td data-label="Ед. изм.">3 скважины по 8 м</td><td data-label="Стоимость" class="price-cell">от 70 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-scale"/></svg></span><span class="svc-name">Независимая геодезическая экспертиза</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 80 000 руб.</td><td data-label="Примечания" class="note">Зависит от сложности и количества вопросов.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-user"/></svg></span><span class="svc-name">Геодезист на день</span></div></td><td data-label="Ед. изм.">1 день</td><td data-label="Стоимость" class="price-cell">от 25 000 руб.</td><td data-label="Примечания" class="note">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab5" class="tab-content" role="tabpanel" aria-labelledby="tabbtn5" data-title="Дополнительные услуги" hidden>
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr><th>Наименование вида работ</th><th>Единица измерения</th><th>Стоимость</th><th>Сроки</th><th>Примечания</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-search"/></svg></span><span class="svc-name">Получение выписки из ЕГРН</span></div></td><td data-label="Ед. изм."><ul class="spec"><li>электронный вид</li><li>бумажный носитель</li></ul></td><td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>2 000 руб.</li><li>3 000 руб.</li></ul></td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 1 раб. дня</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-map"/></svg></span><span class="svc-name">Получение кадастрового плана территории (КПТ)</span></div></td><td data-label="Ед. изм.">1 шт., электронный вид</td><td data-label="Стоимость" class="price-cell">3 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 1 раб. дня</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-scale"/></svg></span><span class="svc-name">Землеустроительная экспертиза</span></div></td><td data-label="Ед. изм.">1 заключение</td><td data-label="Стоимость" class="price-cell">от 85 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td><td data-label="Примечания" class="note">Зависит от сложности и количества вопросов.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-bell"/></svg></span><span class="svc-name">Уведомление о планируемом строительстве или реконструкции объекта ИЖС / садового дома</span></div></td><td data-label="Ед. изм.">1 шт.</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">Зависит от количества согласований.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-bell-off"/></svg></span><span class="svc-name">Уведомление о планируемом сносе объекта капитального строительства</span></div></td><td data-label="Ед. изм.">1 шт.</td><td data-label="Стоимость" class="price-cell">от 10 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">Зависит от количества согласований.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-check"/></svg></span><span class="svc-name">Заключение кадастрового инженера</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-check"/></svg></span><span class="svc-name">Заключение о фактическом использовании земельного участка</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-ruler"/></svg></span><span class="svc-name">Заключение о фактической площади земельного участка</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-x"/></svg></span><span class="svc-name">Заключение о некапитальности объекта</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-x"/></svg></span><span class="svc-name">Заключение об отсутствии строений на земельном участке</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>10 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-home"/></svg></span><span class="svc-name">Заключение о признании садового дома жилым / жилого дома садовым</span></div></td><td data-label="Ед. изм."><ul class="spec"><li>до 200 кв. м</li><li>от 201 кв. м</li></ul></td><td data-label="Стоимость" class="price-cell"><ul class="spec spec-price"><li>40 000 руб.</li><li>индивидуально</li></ul></td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>15 раб. дней</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-percent"/></svg></span><span class="svc-name">Исключение нежилого здания / помещения из перечня налогообложения (700-ПП)</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 50 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>до 3 месяцев</td><td data-label="Примечания" class="note">Стандартный срок рассмотрения — 3 месяца.</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-refresh"/></svg></span><span class="svc-name">Изменение вида разрешённого использования ЗУ (для Москвы)</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 200 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-briefcase"/></svg></span><span class="svc-name">Сопровождение возникновения или перехода права на недвижимость</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 10 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-shield-check"/></svg></span><span class="svc-name">Регистрация прав (представление интересов в Росреестре)</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 5 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-doc"/></svg></span><span class="svc-name">Получение распоряжения ДГИ г. Москвы</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">от 15 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-pin"/></svg></span><span class="svc-name">Присвоение адреса объекту адресации (по ФИАС)</span></div></td><td data-label="Ед. изм.">1 объект</td><td data-label="Стоимость" class="price-cell">5 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+              <tr><td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-user"/></svg></span><span class="svc-name">Выезд кадастрового инженера для консультации</span></div></td><td data-label="Ед. изм.">1 выезд</td><td data-label="Стоимость" class="price-cell">10 000 руб.</td><td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td><td data-label="Примечания" class="note">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </section>
 
-<!-- CONTACT -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Как мы работаем</span>
+      <h2>Этапы <em>работы</em></h2>
+      <p>Прозрачный процесс от первого звонка до готового проекта</p>
+      <div class="line"></div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><div class="step-num">1</div><h4>Заявка и консультация</h4><p>Обсуждаем задачу, изучаем объект, определяем объём и стоимость работ</p></div>
+      <div class="process-step"><div class="step-num">2</div><h4>Выезд и замеры</h4><p>Инженер выезжает на объект, проводит замеры и собирает исходные данные</p></div>
+      <div class="process-step"><div class="step-num">3</div><h4>Разработка проекта</h4><p>Подготовка проектной и рабочей документации, кадастровых материалов</p></div>
+      <div class="process-step"><div class="step-num">4</div><h4>Согласование и сдача</h4><p>Согласование в контролирующих органах, передача готовых документов заказчику</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="contact-grid">
     <div class="contact-info">
-      <h2>Свяжитесь <span>с нами</span></h2>
+      <h2>Свяжитесь <em>с нами</em></h2>
       <p>Оставьте заявку — инженер перезвонит в течение 30 минут и проконсультирует по вашему проекту. Работаем круглосуточно.</p>
-      
+
       <div class="contact-item">
-        <div class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
-        </div>
+        <div class="contact-icon"><svg class="ico"><use href="#i-phone"/></svg></div>
         <div><strong>Телефон</strong><span><a href="tel:+79309450860">+7 (930) 945-08-60</a></span></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
+        <div class="contact-icon"><svg class="ico"><use href="#i-mail"/></svg></div>
         <div><strong>Почта</strong><span><a href="mailto:mashproekt77@yandex.ru">mashproekt77@yandex.ru</a></span></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
+        <div class="contact-icon"><svg class="ico"><use href="#i-pin"/></svg></div>
         <div><strong>Адрес</strong><span>ул. Чертановская 1к1, Москва, 117648</span></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <div class="contact-icon"><svg class="ico"><use href="#i-clock"/></svg></div>
         <div><strong>Режим работы</strong><span>Круглосуточно, без выходных</span></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div><strong>Рейтинг</strong><span>5.0 в Google (4 отзыва)</span></div>
+        <div class="contact-icon"><svg class="ico"><use href="#i-star"/></svg></div>
+        <div><strong>Рейтинг</strong><span>5.0 в Google</span></div>
       </div>
-      
-      <div class="telegram-block">
-        <h4>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0z"/></svg>
-          Мы в Telegram
-        </h4>
-        <div class="telegram-links">
-          <a href="https://t.me/pereplanirovka77" class="telegram-link-item" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            <div class="link-text">
+
+      <div class="tg-block">
+        <h4><svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>Мы в Telegram</h4>
+        <div class="tg-list">
+          <a href="https://t.me/pereplanirovka77" class="tg-link" target="_blank" rel="noopener noreferrer">
+            <svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>
+            <span class="link-text">
               <span class="link-title">Наша группа</span>
               <span class="link-desc">@pereplanirovka77</span>
-            </div>
+            </span>
           </a>
-          <a href="https://t.me/pereplanirovka77_bot" class="telegram-link-item" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-            <div class="link-text">
-              <span class="link-title">🤖 Робот Андрей</span>
+          <a href="https://t.me/pereplanirovka77_bot" class="tg-link" target="_blank" rel="noopener noreferrer">
+            <svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>
+            <span class="link-text">
+              <span class="link-title">Робот Андрей</span>
               <span class="link-desc">@pereplanirovka77_bot</span>
-            </div>
+            </span>
           </a>
         </div>
       </div>
     </div>
 
-    <form class="contact-form" id="contactForm" action="https://formsubmit.co/mashproekt77@yandex.ru" method="POST" novalidate>
+    <form class="contact-form" id="contactForm" novalidate>
       <h3>Оставить заявку</h3>
-      <p>Заполните форму — мы свяжемся с вами в течение 30 минут</p>
-      
-      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+      <p>Заполните форму — мы свяжемся в течение 30 минут</p>
+
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="Новая заявка с сайта Машпроект77">
+      <input type="hidden" name="_subject" value="Новая заявка с сайта МАШПРОЕКТ77">
       <input type="hidden" name="_template" value="table">
-      
+
       <div class="form-group">
         <label for="name">Ваше имя</label>
-        <input type="text" id="name" name="Имя" placeholder="Ваше имя" required autocomplete="name">
+        <input type="text" id="name" name="Имя" placeholder="Ваше имя *" required autocomplete="name">
       </div>
       <div class="form-group">
         <label for="phone">Телефон</label>
@@ -665,10 +1947,12 @@
       <div class="form-group">
         <label for="service">Услуга</label>
         <select id="service" name="Услуга" required>
-          <option value="">Выберите услугу</option>
+          <option value="">Выберите услугу *</option>
           <option>Кадастровые работы</option>
           <option>Межевание</option>
           <option>Технический план</option>
+          <option>Топографическая съёмка</option>
+          <option>Геодезические услуги</option>
           <option>Проект газоснабжения</option>
           <option>Согласование проекта</option>
           <option>Подключение к газовым сетям</option>
@@ -679,15 +1963,15 @@
         <label for="message">Сообщение</label>
         <textarea id="message" name="Сообщение" placeholder="Опишите задачу (тип объекта, адрес, площадь)"></textarea>
       </div>
-      
+
       <div class="checkbox-group">
         <input type="checkbox" id="privacy" name="Согласие_на_обработку_ПД" required>
         <label for="privacy" style="position:static;width:auto;height:auto;clip:auto;margin:0;overflow:visible">
           Я согласен на <a href="#" id="privacyLink">обработку персональных данных</a>
         </label>
       </div>
-      
-      <button type="submit" class="btn btn-primary" id="submitBtn">Отправить заявку</button>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn" aria-live="polite">Отправить заявку</button>
       <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
     </form>
   </div>
@@ -695,23 +1979,18 @@
 
 </main>
 
-<button class="scroll-top" id="scrollTop" aria-label="Наверх">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-
 <footer class="footer">
-  <div class="footer-grid">
+  <div class="footer-inner">
     <div class="footer-col">
       <div class="footer-logo">МАШПРОЕКТ<span>77</span></div>
-      <p>Кадастровые инженеры и проектирование газоснабжения в Москве и Московской области. Надёжные решения для вашего проекта с 2015 года.</p>
+      <p>Кадастровые инженеры, геодезисты и проектировщики газоснабжения в Москве и Московской области. Надёжные решения для вашего проекта с 2014 года.</p>
     </div>
     <div class="footer-col">
       <h4>Услуги</h4>
       <a href="#services">Кадастровые работы</a>
-      <a href="#services">Межевание</a>
-      <a href="#services">Технические планы</a>
-      <a href="#services">Проекты газоснабжения</a>
-      <a href="#services">Согласование</a>
+      <a href="#services">Проектирование газоснабжения</a>
+      <a href="#price">Прайс-лист</a>
+      <a href="#process">Этапы работы</a>
     </div>
     <div class="footer-col">
       <h4>Контакты</h4>
@@ -722,28 +2001,32 @@
     </div>
     <div class="footer-col">
       <h4>Telegram</h4>
-      <div class="footer-telegram-links">
-        <a href="https://t.me/pereplanirovka77" class="footer-telegram-link" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <div class="footer-tg-links">
+        <a href="https://t.me/pereplanirovka77" class="footer-tg-link" target="_blank" rel="noopener noreferrer">
+          <svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>
           Группа @pereplanirovka77
         </a>
-        <a href="https://t.me/pereplanirovka77_bot" class="footer-telegram-link" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-          🤖 Робот Андрей
+        <a href="https://t.me/pereplanirovka77_bot" class="footer-tg-link" target="_blank" rel="noopener noreferrer">
+          <svg class="ico-fill" aria-hidden="true"><use href="#i-telegram"/></svg>
+          Робот Андрей
         </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2015–<span class="current-year">2026</span> Машпроект77. Все права защищены. · <a href="#" id="privacyLinkFooter" style="color:var(--accent);text-decoration:underline">Политика конфиденциальности</a></p>
+    <p>© 2014–<span id="year">2025</span> МАШПРОЕКТ77. Все права защищены. · <a href="#" id="privacyLinkFooter">Политика конфиденциальности</a></p>
   </div>
 </footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+  <svg class="ico" aria-hidden="true"><use href="#i-up"/></svg>
+</button>
 
 <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" tabindex="-1">
   <div class="modal">
     <button class="modal-close" id="modalClose" aria-label="Закрыть">✕</button>
     <h2 id="privacyTitle">Политика конфиденциальности</h2>
-    <p><strong>ООО «Машпроект77»</strong> соблюдает законодательство РФ в области персональных данных (152-ФЗ).</p>
+    <p><strong>МАШПРОЕКТ77</strong> соблюдает законодательство РФ в области персональных данных (152-ФЗ).</p>
     <h3>1. Какие данные мы собираем</h3>
     <p>Через формы на сайте: имя, телефон, email, описание задачи.</p>
     <h3>2. Цели обработки</h3>
@@ -757,217 +2040,341 @@
     <h3>4. Сроки хранения</h3>
     <p>Данные хранятся не дольше, чем требуется для достижения целей обработки.</p>
     <h3>5. Ваши права</h3>
-    <p>Вы вправе запросить уточнение, блокировку или удаление своих данных: <a href="mailto:mashproekt77@yandex.ru" style="color:var(--blue)">mashproekt77@yandex.ru</a></p>
+    <p>Вы вправе запросить уточнение, блокировку или удаление своих данных: <a href="mailto:mashproekt77@yandex.ru" style="color:var(--brand-600)">mashproekt77@yandex.ru</a></p>
   </div>
 </div>
 
 <script>
-(function() {
-  'use strict';
+(function(){
+'use strict';
 
-  const burger = document.getElementById('burger');
-  const nav = document.getElementById('mainNav');
-  
-  if (burger && nav) {
-    burger.addEventListener('click', function() {
-      const isOpen = nav.classList.toggle('open');
-      burger.classList.toggle('open');
-      burger.setAttribute('aria-expanded', isOpen);
-    });
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    nav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        nav.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      });
-    });
+var root = document.documentElement;
+var themeToggle = document.getElementById('themeToggle');
+var themeIcon = document.getElementById('themeIcon');
+function applyTheme(t){
+  root.setAttribute('data-theme', t);
+  themeIcon.innerHTML = '<use href="#i-' + (t === 'dark' ? 'sun' : 'moon') + '"/>';
+  try{ localStorage.setItem('mp77-theme', t); }catch(e){}
+}
+var saved = null;
+try{ saved = localStorage.getItem('mp77-theme'); }catch(e){}
+applyTheme(saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+themeToggle.addEventListener('click', function(){
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
 
-    document.addEventListener('click', function(e) {
-      if (!nav.contains(e.target) && !burger.contains(e.target)) {
-        nav.classList.remove('open');
-        burger.classList.remove('open');
+var burger = document.getElementById('burger');
+var nav = document.getElementById('mainNav');
+burger.addEventListener('click', function(){
+  var open = nav.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+nav.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){
+    nav.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  });
+});
+
+var sections = document.querySelectorAll('main section[id]');
+var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+if ('IntersectionObserver' in window && sections.length){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        var id = en.target.id;
+        navLinks.forEach(function(a){
+          var on = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current','true');
+          else a.removeAttribute('aria-current');
+        });
       }
     });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s){ obs.observe(s); });
+}
+var headerEl = document.querySelector('.site-header');
+window.addEventListener('scroll', function(){
+  headerEl.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+var scrollTopBtn = document.getElementById('scrollTop');
+scrollTopBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+window.addEventListener('scroll', function(){
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href');
+    if (id === '#' || id.length < 2) return;
+    var t = document.querySelector(id);
+    if (!t) return;
+    e.preventDefault();
+    var top = t.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+});
+
+var modal = document.getElementById('privacyModal');
+var modalClose = document.getElementById('modalClose');
+function openModal(e){ if(e) e.preventDefault(); modal.classList.add('active'); document.body.style.overflow='hidden'; modalClose.focus(); }
+function closeModal(){ modal.classList.remove('active'); document.body.style.overflow=''; }
+[document.getElementById('privacyLink'), document.getElementById('privacyLinkFooter')].forEach(function(l){
+  if (l) l.addEventListener('click', openModal);
+});
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Tab' && modal.classList.contains('active')){
+    var focusables = modal.querySelectorAll(
+      'a[href], button:not([disabled]), input, textarea, select'
+    );
+    if (!focusables.length) return;
+    var first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first){
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last){
+      e.preventDefault(); first.focus();
+    }
   }
+});
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      if (nav) nav.classList.remove('open');
-      if (burger) burger.classList.remove('open');
-      const modal = document.getElementById('privacyModal');
-      if (modal && modal.classList.contains('active')) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape'){
+    if (modal.classList.contains('active')) closeModal();
+    nav.classList.remove('open');
+    burger.classList.remove('open');
+  }
+});
+
+var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+var panels = Array.prototype.slice.call(document.querySelectorAll('.tab-content'));
+
+function activateTab(id, focusBtn){
+  tabBtns.forEach(function(b){
+    var on = b.dataset.tab === id;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+    b.tabIndex = on ? 0 : -1;
+  });
+  panels.forEach(function(p){
+    var on = p.id === id;
+    p.classList.toggle('active', on);
+    p.hidden = !on;
+  });
+  if (focusBtn){
+    var b2 = document.querySelector('.tab-btn[data-tab="' + id + '"]');
+    if (b2) b2.focus();
+  }
+}
+tabBtns.forEach(function(b){
+  b.addEventListener('click', function(){ activateTab(b.dataset.tab); });
+});
+document.querySelector('.tabs').addEventListener('keydown', function(e){
+  if (['ArrowRight','ArrowLeft','Home','End'].indexOf(e.key) === -1) return;
+  var i = tabBtns.indexOf(document.activeElement);
+  if (i === -1) return;
+  e.preventDefault();
+  var n = i;
+  if (e.key === 'ArrowRight') n = (i + 1) % tabBtns.length;
+  if (e.key === 'ArrowLeft') n = (i - 1 + tabBtns.length) % tabBtns.length;
+  if (e.key === 'Home') n = 0;
+  if (e.key === 'End') n = tabBtns.length - 1;
+  activateTab(tabBtns[n].dataset.tab, true);
+});
+
+var searchInput = document.getElementById('searchInput');
+var searchClear = document.getElementById('searchClear');
+var searchStatus = document.getElementById('searchStatus');
+
+if (window.innerWidth < 640) {
+  searchInput.placeholder = 'Поиск по прайсу...';
+}
+
+function normalize(s){ return String(s).toLowerCase().replace(/ё/g,'е'); }
+function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+function clearMarks(el){
+  el.querySelectorAll('mark').forEach(function(m){
+    var p = m.parentNode;
+    p.replaceChild(document.createTextNode(m.textContent), m);
+    p.normalize();
+  });
+}
+function highlight(el, re){
+  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  var nodes = [], n;
+  while ((n = walker.nextNode())) nodes.push(n);
+  nodes.forEach(function(tn){
+    var text = tn.nodeValue;
+    if (!text || !re.test(text)) return;
+    re.lastIndex = 0;
+    var frag = document.createDocumentFragment();
+    var last = 0, m;
+    while ((m = re.exec(text)) !== null){
+      if (m[0].length === 0){ re.lastIndex++; continue; }
+      if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var mk = document.createElement('mark');
+      mk.textContent = m[0];
+      frag.appendChild(mk);
+      last = m.index + m[0].length;
+    }
+    if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    tn.parentNode.replaceChild(frag, tn);
+  });
+}
+function setTabCount(panelId, v){
+  var b = document.querySelector('.tab-btn[data-tab="' + panelId + '"] .tab-count');
+  if (b) b.textContent = v;
+}
+function plural(n, one, few, many){
+  var m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return few;
+  return many;
+}
+function applyFilter(){
+  var q = normalize(searchInput.value.trim());
+  var re = q ? new RegExp('(' + escapeRe(q) + ')', 'gi') : null;
+  var total = 0;
+  panels.forEach(function(p){
+    var rows = p.querySelectorAll('tbody tr');
+    var v = 0;
+    Array.prototype.forEach.call(rows, function(r){
+      var cells = r.querySelectorAll('td');
+      Array.prototype.forEach.call(cells, clearMarks);
+      var match = !q || normalize(r.textContent).indexOf(q) !== -1;
+      r.hidden = !match;
+      if (match){
+        v++;
+        if (re) Array.prototype.forEach.call(cells, function(c){ highlight(c, re); });
       }
+    });
+    total += v;
+    var empty = p.querySelector('.empty-state');
+    if (empty) empty.hidden = v !== 0;
+    p.querySelector('.table-scroll').hidden = q ? v === 0 : false;
+    setTabCount(p.id, v);
+    var btn = document.querySelector('.tab-btn[data-tab="' + p.id + '"]');
+    if (btn){
+      btn.classList.toggle('has-matches', !!q && v > 0);
+      btn.classList.toggle('no-matches', !!q && v === 0);
     }
   });
-
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-  if (sections.length > 0 && navLinks.length > 0) {
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(function(link) {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + id) link.classList.add('active');
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-    sections.forEach(function(section) { observer.observe(section); });
+  searchClear.hidden = !q;
+  if (!q){
+    searchStatus.textContent = '';
+  } else if (total === 0){
+    searchStatus.textContent = 'По запросу «' + searchInput.value.trim() + '» ничего не найдено. Попробуйте изменить запрос.';
+  } else {
+    searchStatus.innerHTML = 'Найдено <b>' + total + '</b> ' + plural(total,'услуга','услуги','услуг') + ' в разделах прайс-листа.';
   }
+}
+var debounce;
+searchInput.addEventListener('input', function(){ clearTimeout(debounce); debounce = setTimeout(applyFilter, 130); });
+searchInput.addEventListener('keydown', function(e){
+  if (e.key === 'Escape'){ searchInput.value = ''; applyFilter(); searchInput.blur(); }
+});
+searchClear.addEventListener('click', function(){ searchInput.value = ''; applyFilter(); searchInput.focus(); });
 
-  const scrollTopBtn = document.getElementById('scrollTop');
-  if (scrollTopBtn) {
-    window.addEventListener('scroll', function() {
-      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-    scrollTopBtn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+panels.forEach(function(p){ setTabCount(p.id, p.querySelectorAll('tbody tr').length); });
+
+document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+var phoneInput = document.getElementById('phone');
+phoneInput.addEventListener('input', function(e){
+  var v = e.target.value.replace(/\D/g, '');
+  if (v.length && v[0] === '8') v = '7' + v.slice(1);
+  if (!v.startsWith('7') && v.length) v = '7' + v;
+  if (v.length > 11) v = v.slice(0, 11);
+  var f = '';
+  if (v.length > 0) f = '+' + v[0];
+  if (v.length > 1) f += ' (' + v.slice(1, 4);
+  if (v.length >= 5) f += ') ' + v.slice(4, 7);
+  if (v.length >= 8) f += '-' + v.slice(7, 9);
+  if (v.length >= 10) f += '-' + v.slice(9, 11);
+  e.target.value = f;
+});
+
+var form = document.getElementById('contactForm');
+var formStatus = document.getElementById('formStatus');
+var submitBtn = document.getElementById('submitBtn');
+function showStatus(type, msg){
+  formStatus.className = 'form-status ' + type;
+  formStatus.textContent = msg;
+  submitBtn.setAttribute('aria-busy', type === 'info' ? 'true' : 'false');
+}
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  formStatus.className = 'form-status';
+  formStatus.textContent = '';
+
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var service = document.getElementById('service').value;
+  var message = document.getElementById('message').value.trim();
+  var honey = form.querySelector('[name="_honey"]').value;
+  var privacy = document.getElementById('privacy').checked;
+
+  if (honey){ return; }
+  if (!name || !phone || !service){
+    showStatus('error','Пожалуйста, заполните обязательные поля: имя, телефон и услугу.');
+    return;
   }
+  if (phone.replace(/\D/g,'').length < 11){
+    showStatus('error','Введите корректный номер телефона (11 цифр).');
+    return;
+  }
+  if (!privacy){
+    showStatus('error','Необходимо согласие на обработку персональных данных.');
+    return;
+  }
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Отправка...';
+  showStatus('info','Отправляем заявку...');
 
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId.length < 2) return;
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      }
-    });
-  });
-
-  const modal = document.getElementById('privacyModal');
-  const privacyLinks = [document.getElementById('privacyLink'), document.getElementById('privacyLinkFooter')];
-  
-  privacyLinks.forEach(function(link) {
-    if (link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        document.getElementById('modalClose').focus();
-      });
+  var payload = {
+    name: name,
+    phone: phone,
+    email: email,
+    service: service,
+    message: message,
+    _subject: 'Новая заявка с сайта МАШПРОЕКТ77 — ' + service,
+    _template: 'table',
+    _captcha: 'false'
+  };
+  fetch('https://formsubmit.co/ajax/mashproekt77@yandex.ru', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (data && (data.success === 'true' || data.success === true)){
+      showStatus('success','✓ Заявка отправлена! Инженер перезвонит вам в течение 30 минут.');
+      form.reset();
+    } else {
+      showStatus('error','Ошибка при отправке. Позвоните: +7 (930) 945-08-60');
     }
+  })
+  .catch(function(err){
+    console.error('FormSubmit error:', err);
+    showStatus('error','Ошибка соединения. Позвоните: +7 (930) 945-08-60');
+  })
+  .finally(function(){
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Отправить заявку';
   });
+});
 
-  document.getElementById('modalClose').addEventListener('click', function() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-  
-  if (modal) {
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  const phoneInput = document.getElementById('phone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function(e) {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 0 && v[0] === '8') v = '7' + v.slice(1);
-      if (v.length > 11) v = v.slice(0, 11);
-      let f = '';
-      if (v.length > 0) f = '+' + v[0];
-      if (v.length > 1) f += ' (' + v.slice(1, 4);
-      if (v.length >= 4) f += ') ' + v.slice(4, 7);
-      if (v.length >= 7) f += '-' + v.slice(7, 9);
-      if (v.length >= 9) f += '-' + v.slice(9, 11);
-      e.target.value = f;
-    });
-  }
-
-  const form = document.getElementById('contactForm');
-  if (form) {
-    const formStatus = document.getElementById('formStatus');
-    const submitBtn = document.getElementById('submitBtn');
-
-    function showStatus(type, message) {
-      formStatus.className = 'form-status ' + type;
-      formStatus.textContent = message;
-    }
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      formStatus.className = 'form-status';
-      formStatus.textContent = '';
-      
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value.trim();
-      const privacy = document.getElementById('privacy').checked;
-      
-      if (!name || !phone || !service) {
-        showStatus('error', 'Пожалуйста, заполните обязательные поля: имя, телефон и услугу.');
-        return;
-      }
-      if (phone.replace(/\D/g, '').length < 11) {
-        showStatus('error', 'Пожалуйста, введите корректный номер телефона (11 цифр).');
-        return;
-      }
-      if (!privacy) {
-        showStatus('error', 'Необходимо согласие на обработку персональных данных.');
-        return;
-      }
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Отправка...';
-      showStatus('info', 'Отправляем заявку...');
-      
-      const formData = {
-        name: name,
-        phone: phone,
-        email: email,
-        service: service,
-        message: message,
-        _subject: 'Новая заявка с сайта Машпроект77 — ' + service,
-        _template: 'table',
-        _captcha: 'false'
-      };
-      
-      fetch('https://formsubmit.co/ajax/mashproekt77@yandex.ru', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-      .then(function(response) { return response.json(); })
-      .then(function(data) {
-        if (data.success) {
-          showStatus('success', '✓ Заявка успешно отправлена! Инженер перезвонит вам в течение 30 минут.');
-          form.reset();
-        } else {
-          showStatus('error', 'Произошла ошибка при отправке. Пожалуйста, позвоните: +7 (930) 945-08-60');
-        }
-      })
-      .catch(function(err) {
-        console.error('FormSubmit error:', err);
-        showStatus('error', 'Ошибка соединения. Пожалуйста, позвоните: +7 (930) 945-08-60');
-      })
-      .finally(function() {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Отправить заявку';
-      });
-    });
-  }
-
-  const yearElements = document.querySelectorAll('.current-year');
-  yearElements.forEach(function(el) {
-    el.textContent = new Date().getFullYear();
-  });
 })();
 </script>
-
 </body>
 </html>
