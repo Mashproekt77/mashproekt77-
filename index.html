@@ -451,6 +451,52 @@ img,svg{max-width:100%;display:block}
 .adv-card p{color:var(--muted);font-size:14px;margin:0;line-height:1.6}
 
 /* ============================================================
+   APP PROMO (RU STORE)
+   ============================================================ */
+.app-promo{padding:40px 0;background:var(--bg)}
+.app-card{
+  background:linear-gradient(135deg,var(--surface) 0%,var(--surface-2) 100%);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  padding:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  box-shadow:var(--shadow-m);
+  position:relative;
+  overflow:hidden;
+}
+.app-card::before{
+  content:"";position:absolute;right:-50px;top:-50px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle, rgba(245,179,1,.15), transparent 70%);
+  pointer-events:none;
+}
+.app-content{max-width:600px;z-index:1}
+.app-title{font-size:22px;font-weight:900;color:var(--ink);margin:0 0 8px;letter-spacing:-0.01em}
+.app-desc{font-size:15.5px;color:var(--muted);margin:0;line-height:1.5}
+.rustore-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  background:#000;color:#fff;text-decoration:none;
+  padding:14px 24px;border-radius:var(--r-md);
+  font-weight:700;transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  box-shadow:0 4px 15px rgba(0,0,0,.2);z-index:1;white-space:nowrap;
+}
+.rustore-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.rustore-btn svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rustore-btn-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.rustore-btn-text span{font-size:10px;font-weight:400;opacity:0.8;text-transform:uppercase;letter-spacing:0.5px}
+.rustore-btn-text strong{font-size:16px;font-weight:800}
+[data-theme="dark"] .rustore-btn{background:#fff;color:#000}
+[data-theme="dark"] .rustore-btn:hover{box-shadow:0 8px 25px rgba(255,255,255,.15)}
+
+@media (max-width:768px){
+  .app-card{flex-direction:column;align-items:flex-start;padding:30px 24px;gap:20px}
+  .rustore-btn{width:100%;justify-content:center}
+}
+
+/* ============================================================
    PRICE / TABS
    ============================================================ */
 .price-section{background:var(--surface-2)}
@@ -1105,7 +1151,7 @@ section[id]{scroll-margin-top:96px}
   body::before{display:none}
   .site-header,.burger,.scroll-top,.hero-actions,.tabs,.price-toolbar,
   .contact-form,.search-wrap,.search-status,.section-title .eyebrow,
-  .contact,.footer,.modal-overlay,.tg-block,.hero-chips{display:none !important}
+  .contact,.footer,.modal-overlay,.tg-block,.hero-chips,.app-promo{display:none !important}
   .tab-content{display:block !important;page-break-inside:auto}
   .tab-content::before{
     content:attr(data-title);display:block;
@@ -1119,6 +1165,25 @@ section[id]{scroll-margin-top:96px}
   a{text-decoration:none;color:#000 !important}
 }
 </style>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(113347928, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113347928" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 </head>
 <body>
 
@@ -1871,6 +1936,29 @@ section[id]{scroll-margin-top:96px}
       <div class="process-step"><div class="step-num">2</div><h4>Выезд и замеры</h4><p>Инженер выезжает на объект, проводит замеры и собирает исходные данные</p></div>
       <div class="process-step"><div class="step-num">3</div><h4>Разработка проекта</h4><p>Подготовка проектной и рабочей документации, кадастровых материалов</p></div>
       <div class="process-step"><div class="step-num">4</div><h4>Согласование и сдача</h4><p>Согласование в контролирующих органах, передача готовых документов заказчику</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- БЛОК С RuStore -->
+<section class="app-promo" id="app">
+  <div class="container">
+    <div class="app-card">
+      <div class="app-content">
+        <h3 class="app-title">Вы — кадастровый инженер?</h3>
+        <p class="app-desc">Вас точно заинтересует наше приложение, попробуйте прямо сейчас.</p>
+      </div>
+      <a href="https://www.rustore.ru/catalog/app/ru.kotohod.kipole" target="_blank" rel="noopener noreferrer" class="rustore-btn" aria-label="Скачать приложение в RuStore">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="m8.574 14.79l10.488 2.574c2.51.653 2.997 2.292 2.958 4.227l.039 17.484c-.039 2.054-1.558 2.998-3.535 2.459L8.036 38.998c-1.909-.458-2.46-1.427-2.536-3.612l.077-17.369c.127-2.586 1.303-3.481 2.996-3.228Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="m15.767 16.555l.106-3.649c-.106-1.553 1.18-2.588 2.651-2.305l10.988 2.651c2.01.36 2.613 1.382 2.651 3.343l.192 18.33c.005 1.65-.565 2.97-2.497 2.497l-7.8-1.64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="m25.879 12.375l-.017-3.196c.017-2.424 1.346-3.146 3.035-2.767l10.22 2.421c1.973.553 3.448 1.524 3.38 3.804V30.66c0 1.152-.837 2.994-3.764 2.46l-6.41-1.172" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="rustore-btn-text">
+          <span>Доступно в</span>
+          <strong>RuStore</strong>
+        </span>
+      </a>
     </div>
   </div>
 </section>
