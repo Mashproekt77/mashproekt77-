@@ -2070,6 +2070,12 @@ section[id]{scroll-margin-top:96px}
           <span>WeChat</span>
         </a>
 
+        <!-- imo -->
+        <a href="#" class="social-btn" data-modal="true" data-title="imo" data-text="Ваш imo ID: <b>imoid_0cobQVejzA</b><br>Телефон: <b>+7 (930) 945-08-60</b>">
+          <svg viewBox="0 0 24 24" fill="#00AEEF"><path d="M12 2C6.48 2 2 5.58 2 10c0 2.85 1.86 5.35 4.66 6.76l-1.2 4.4c-.06.24.18.45.4.32l5.09-3.03c.34.04.69.06 1.05.06 5.52 0 10-3.58 10-8s-4.48-8-10-8zm-1.8 11.5c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2 2.2 1 2.2 2.2-1 2.2-2.2 2.2zm3.6 0c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2 2.2 1 2.2 2.2-1 2.2-2.2 2.2z"/></svg>
+          <span>imo</span>
+        </a>
+
         <!-- KakaoTalk -->
         <a href="#" class="social-btn" data-modal="true" data-title="KakaoTalk" data-text="Отсканируйте QR-код KakaoTalk из вашего приложения, чтобы добавить нас в друзья.">
           <svg viewBox="0 0 24 24" fill="#FEE500"><path d="M12 3c-5.52 0-10 3.58-10 8 0 2.85 1.86 5.35 4.66 6.76l-1.2 4.4c-.06.24.18.45.4.32l5.09-3.03c.34.04.69.06 1.05.06 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>
@@ -2158,7 +2164,7 @@ section[id]{scroll-margin-top:96px}
   </div>
 </div>
 
-<!-- МОДАЛ: Для WeChat, KakaoTalk, Bip -->
+<!-- МОДАЛ: Для WeChat, KakaoTalk, Bip, imo -->
 <div class="modal-overlay" id="socialModal" role="dialog" aria-modal="true" aria-labelledby="socialModalTitle" tabindex="-1">
   <div class="modal" style="max-width: 400px; text-align: center;">
     <button class="modal-close" id="socialModalClose" aria-label="Закрыть">✕</button>
@@ -2257,7 +2263,7 @@ function closePrivacyModal(){ privacyModal.classList.remove('active'); document.
 privacyModalClose.addEventListener('click', closePrivacyModal);
 privacyModal.addEventListener('click', function(e){ if (e.target === privacyModal) closePrivacyModal(); });
 
-// Модал для соцсетей (WeChat, Kakao, Bip)
+// Модал для соцсетей (WeChat, Kakao, Bip, imo)
 var socialModal = document.getElementById('socialModal');
 var socialModalClose = document.getElementById('socialModalClose');
 document.querySelectorAll('.social-btn[data-modal="true"]').forEach(function(btn){
