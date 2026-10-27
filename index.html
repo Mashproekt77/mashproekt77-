@@ -7,14 +7,14 @@
 <meta name="author" content="МАШПРОЕКТ77">
 <meta name="theme-color" content="#0B2E59">
 
-<title>МАШПРОЕКТ77 — Кадастровые инженеры · Проектирование газоснабжения · Геодезия | Москва и МО</title>
-<meta name="description" content="МАШПРОЕКТ77 — кадастровые работы, межевание, технические планы, геодезия и проектирование газоснабжения в Москве и МО. Договор, фиксированная смета, работаем с 2014 года.">
+<title>МАШПРОЕКТ77 — Кадастровые инженеры · Проектирование газоснабжения · Разработка инженерного ПО | Москва и МО</title>
+<meta name="description" content="МАШПРОЕКТ77 — кадастровые работы, геодезия, проектирование газоснабжения и разработка инженерного программного обеспечения в Москве и МО. Reverse Engineering, лицензионное сопровождение. Работаем с 2014 года.">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://mashproekt77.ru/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="МАШПРОЕКТ77 — Кадастр · Геодезия · Газоснабжение">
-<meta property="og:description" content="Кадастровые работы, геодезия и проектирование газоснабжения в Москве и МО. Смета за 15 минут.">
+<meta property="og:title" content="МАШПРОЕКТ77 — Кадастр · Геодезия · Газоснабжение · Разработка ПО">
+<meta property="og:description" content="Кадастровые работы, геодезия, проектирование газоснабжения и разработка инженерного программного обеспечения в Москве и МО.">
 <meta property="og:url" content="https://mashproekt77.ru/">
 <meta property="og:site_name" content="МАШПРОЕКТ77">
 
@@ -352,7 +352,9 @@ img,svg{max-width:100%;display:block}
    SERVICES SPLIT
    ============================================================ */
 .services-split{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:0;
   border-radius:var(--r-xl);overflow:hidden;
   box-shadow:var(--shadow-l);
   margin-top:-50px;position:relative;z-index:3;
@@ -364,6 +366,10 @@ img,svg{max-width:100%;display:block}
 .service-block.gas{
   background:linear-gradient(140deg,var(--brand-600),var(--brand-800) 70%);
   color:#fff;
+}
+.service-block.software{
+  background: linear-gradient(140deg, #1E293B, #0F172A 70%);
+  color: #fff;
 }
 .service-block .icon-circle{
   width:72px;height:72px;border-radius:22px;
@@ -377,12 +383,18 @@ img,svg{max-width:100%;display:block}
   border-color:rgba(245,179,1,.32);
   color:var(--accent);
 }
+.service-block.software .icon-circle{
+  background:rgba(56,189,248,.12);
+  border-color:rgba(56,189,248,.3);
+  color:#38BDF8;
+}
 .service-block .icon-circle svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .service-block h2{
   font-size:clamp(22px,2.4vw,30px);font-weight:900;text-transform:uppercase;
   letter-spacing:-.01em;margin:0 0 18px;line-height:1.15;
 }
 .service-block.gas h2 span{color:var(--accent)}
+.service-block.software h2 span{color:#38BDF8}
 .service-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
 .service-list li{
   padding:10px 0 10px 28px;position:relative;
@@ -395,7 +407,20 @@ img,svg{max-width:100%;display:block}
   box-shadow:0 0 0 3px rgba(245,179,1,.2);
 }
 .service-block.gas .service-list li{color:#d9e5f7}
+.service-block.software .service-list li{color:#cbd5e1}
+.service-block.software .service-list li::before{
+  background: #38BDF8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,.2);
+}
 .service-block .btn{align-self:flex-start}
+.service-block.software .btn-outline {
+  color: #fff;
+  border-color: #334155;
+}
+.service-block.software .btn-outline:hover {
+  border-color: #38BDF8;
+  background: rgba(56,189,248,.1);
+}
 
 /* ============================================================
    STATS
@@ -1265,6 +1290,7 @@ section[id]{scroll-margin-top:96px}
   <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 001 1h12a1 1 0 001-1V8"/><path d="M10 12h4"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></symbol>
   <symbol id="i-telegram" viewBox="0 0 24 24" fill="currentColor" stroke="none">
     <path d="M21.95 4.3c-.2-.9-1.1-1.5-2-1.2L2.9 10.1c-.6.2-1 .7-1 1.3s.3 1.1.9 1.3l4.4 1.4 1.7 5.1c.2.5.6.9 1.1 1 .5.2 1 .1 1.4-.2l2.5-2.1 4.6 3.4c.4.3.9.4 1.3.2.5-.1.8-.5.9-1l2.3-14.9c.1-.4 0-.8-.2-1.1zM9.5 13.9l-.2 3.6-1.4-4.2 9.5-6.1-7.9 6.7z"/>
   </symbol>
@@ -1284,7 +1310,7 @@ section[id]{scroll-margin-top:96px}
               fill="#8FD4FF"/>
       </svg>
       <span class="logo-text">МАШПРОЕКТ<b>77</b>
-        <span class="logo-sub">Кадастр · Геодезия · Газоснабжение</span>
+        <span class="logo-sub">Кадастр · Геодезия · Газоснабжение · Разработка ПО</span>
       </span>
     </a>
     <div class="header-spacer"></div>
@@ -1315,10 +1341,10 @@ section[id]{scroll-margin-top:96px}
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-badge"><span class="dot"></span> Кадастровые инженеры · Проектировщики</div>
+      <div class="hero-badge"><span class="dot"></span> Инженерные решения · IT</div>
       <h1>Надёжные решения <em>для вашего проекта</em></h1>
-      <div class="hero-sub">Кадастровые работы, геодезия и проектирование газоснабжения в Москве и МО</div>
-      <p>Межевание, технические планы, топосъёмка, проекты газоснабжения любой сложности. Согласование «под ключ» в Мосгазе, Росреестре и надзорных органах. Работаем по СНиП, СП и ГОСТ с 2014 года.</p>
+      <div class="hero-sub">Кадастровые работы, геодезия, газоснабжение и разработка инженерного программного обеспечения в Москве и МО</div>
+      <p>Межевание, технические планы, проекты газоснабжения любой сложности, а также reverse-engineering и лицензионное сопровождение программных продуктов. Работаем по СНиП, СП и ГОСТ с 2014 года.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary btn-lg">
           <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
@@ -1373,6 +1399,20 @@ section[id]{scroll-margin-top:96px}
         <li>Технические условия и техперевооружение</li>
       </ul>
       <a href="#contact" class="btn btn-primary">Заказать проект</a>
+    </div>
+    <div class="service-block software">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+      </div>
+      <h2>Разработка инженерного ПО <br><span>и Reverse Engineering</span></h2>
+      <ul class="service-list">
+        <li>Разработка инженерного программного обеспечения</li>
+        <li>Профессиональный Reverse Engineering продуктов</li>
+        <li>Восстановление утраченной логики и алгоритмов</li>
+        <li>Лицензионное сопровождение и аудит кода</li>
+        <li>Интеграция с CAD/BIM системами</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Обсудить проект</a>
     </div>
   </section>
 </div>
@@ -2102,12 +2142,13 @@ section[id]{scroll-margin-top:96px}
   <div class="footer-inner">
     <div class="footer-col">
       <div class="footer-logo">МАШПРОЕКТ<span>77</span></div>
-      <p>Кадастровые инженеры, геодезисты и проектировщики газоснабжения в Москве и Московской области. Надёжные решения для вашего проекта с 2014 года.</p>
+      <p>Кадастровые инженеры, геодезисты, проектировщики газоснабжения и разработчики ПО в Москве и Московской области. Надёжные решения для вашего проекта с 2014 года.</p>
     </div>
     <div class="footer-col">
       <h4>Услуги</h4>
       <a href="#services">Кадастровые работы</a>
       <a href="#services">Проектирование газоснабжения</a>
+      <a href="#services">Разработка инженерного ПО</a>
       <a href="#price">Прайс-лист</a>
       <a href="#process">Этапы работы</a>
     </div>
