@@ -7,14 +7,14 @@
 <meta name="author" content="МАШПРОЕКТ77">
 <meta name="theme-color" content="#0B2E59">
 
-<title>МАШПРОЕКТ77 — Кадастровые инженеры · Проектирование газоснабжения · Разработка инженерного ПО | Москва и МО</title>
-<meta name="description" content="МАШПРОЕКТ77 — кадастровые работы, геодезия, проектирование газоснабжения и разработка инженерного программного обеспечения в Москве и МО. Reverse Engineering, лицензионное сопровождение. Работаем с 2014 года.">
+<title>МАШПРОЕКТ77 — Кадастровые инженеры · Газоснабжение · Перепланировки · Разработка ПО | Москва и МО</title>
+<meta name="description" content="МАШПРОЕКТ77 — кадастровые работы, геодезия, проектирование газоснабжения, перепланировки квартир и разработка инженерного ПО в Москве и МО. Работаем с 2014 года.">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://mashproekt77.ru/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="МАШПРОЕКТ77 — Кадастр · Геодезия · Газоснабжение · Разработка ПО">
-<meta property="og:description" content="Кадастровые работы, геодезия, проектирование газоснабжения и разработка инженерного программного обеспечения в Москве и МО.">
+<meta property="og:title" content="МАШПРОЕКТ77 — Кадастр · Геодезия · Газ · Перепланировки · ПО">
+<meta property="og:description" content="Кадастровые работы, геодезия, проектирование газоснабжения, перепланировки и разработка инженерного программного обеспечения в Москве и МО.">
 <meta property="og:url" content="https://mashproekt77.ru/">
 <meta property="og:site_name" content="МАШПРОЕКТ77">
 
@@ -353,7 +353,7 @@ img,svg{max-width:100%;display:block}
    ============================================================ */
 .services-split{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap:0;
   border-radius:var(--r-xl);overflow:hidden;
   box-shadow:var(--shadow-l);
@@ -361,7 +361,7 @@ img,svg{max-width:100%;display:block}
   background:var(--surface);
   margin-bottom:56px;
 }
-.service-block{padding:56px 44px;display:flex;flex-direction:column}
+.service-block{padding:56px 36px;display:flex;flex-direction:column}
 .service-block.cadastral{background:var(--surface);color:var(--ink)}
 .service-block.gas{
   background:linear-gradient(140deg,var(--brand-600),var(--brand-800) 70%);
@@ -369,6 +369,10 @@ img,svg{max-width:100%;display:block}
 }
 .service-block.software{
   background: linear-gradient(140deg, #1E293B, #0F172A 70%);
+  color: #fff;
+}
+.service-block.pereplanirovka {
+  background: linear-gradient(140deg, #6D28D9, #4C1D95 70%);
   color: #fff;
 }
 .service-block .icon-circle{
@@ -388,13 +392,19 @@ img,svg{max-width:100%;display:block}
   border-color:rgba(56,189,248,.3);
   color:#38BDF8;
 }
+.service-block.pereplanirovka .icon-circle{
+  background:rgba(167,139,250,.15);
+  border-color:rgba(167,139,250,.32);
+  color:#C4B5FD;
+}
 .service-block .icon-circle svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .service-block h2{
-  font-size:clamp(22px,2.4vw,30px);font-weight:900;text-transform:uppercase;
+  font-size:clamp(22px,2.4vw,28px);font-weight:900;text-transform:uppercase;
   letter-spacing:-.01em;margin:0 0 18px;line-height:1.15;
 }
 .service-block.gas h2 span{color:var(--accent)}
 .service-block.software h2 span{color:#38BDF8}
+.service-block.pereplanirovka h2 span{color:#C4B5FD}
 .service-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
 .service-list li{
   padding:10px 0 10px 28px;position:relative;
@@ -412,6 +422,11 @@ img,svg{max-width:100%;display:block}
   background: #38BDF8;
   box-shadow: 0 0 0 3px rgba(56,189,248,.2);
 }
+.service-block.pereplanirovka .service-list li{color:#DDD6FE}
+.service-block.pereplanirovka .service-list li::before{
+  background: #C4B5FD;
+  box-shadow: 0 0 0 3px rgba(167,139,250,.2);
+}
 .service-block .btn{align-self:flex-start}
 .service-block.software .btn-outline {
   color: #fff;
@@ -420,6 +435,14 @@ img,svg{max-width:100%;display:block}
 .service-block.software .btn-outline:hover {
   border-color: #38BDF8;
   background: rgba(56,189,248,.1);
+}
+.service-block.pereplanirovka .btn-outline {
+  color: #fff;
+  border-color: #7C3AED;
+}
+.service-block.pereplanirovka .btn-outline:hover {
+  border-color: #C4B5FD;
+  background: rgba(167,139,250,.1);
 }
 
 /* ============================================================
@@ -1310,7 +1333,7 @@ section[id]{scroll-margin-top:96px}
               fill="#8FD4FF"/>
       </svg>
       <span class="logo-text">МАШПРОЕКТ<b>77</b>
-        <span class="logo-sub">Кадастр · Геодезия · Газоснабжение · Разработка ПО</span>
+        <span class="logo-sub">Кадастр · Геодезия · Газ · Перепланировки · ПО</span>
       </span>
     </a>
     <div class="header-spacer"></div>
@@ -1343,8 +1366,8 @@ section[id]{scroll-margin-top:96px}
     <div class="hero-inner">
       <div class="hero-badge"><span class="dot"></span> Инженерные решения · IT</div>
       <h1>Надёжные решения <em>для вашего проекта</em></h1>
-      <div class="hero-sub">Кадастровые работы, геодезия, газоснабжение и разработка инженерного программного обеспечения в Москве и МО</div>
-      <p>Межевание, технические планы, проекты газоснабжения любой сложности, а также reverse-engineering и лицензионное сопровождение программных продуктов. Работаем по СНиП, СП и ГОСТ с 2014 года.</p>
+      <div class="hero-sub">Кадастровые работы, геодезия, газоснабжение, перепланировки и разработка инженерного программного обеспечения в Москве и МО</div>
+      <p>Межевание, технические планы, проекты газоснабжения любой сложности, согласование перепланировок квартир и нежилых помещений, а также reverse-engineering и лицензионное сопровождение программных продуктов. Работаем по СНиП, СП и ГОСТ с 2014 года.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary btn-lg">
           <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
@@ -1378,10 +1401,10 @@ section[id]{scroll-margin-top:96px}
       <h2>Кадастровые инженеры</h2>
       <ul class="service-list">
         <li>Межевание земельных участков</li>
-        <li>Технические планы зданий и сооружений</li>
+        <li>Технические планы зданий</li>
         <li>Кадастровые работы любой сложности</li>
-        <li>Подготовка документов для Росреестра</li>
-        <li>Уточнение границ и площади участков</li>
+        <li>Документы для Росреестра</li>
+        <li>Уточнение границ и площади</li>
         <li>Исправление реестровых ошибок</li>
       </ul>
       <a href="#contact" class="btn btn-outline">Заказать услугу</a>
@@ -1392,24 +1415,38 @@ section[id]{scroll-margin-top:96px}
       </div>
       <h2>Проектирование <span>газоснабжения</span></h2>
       <ul class="service-list">
-        <li>Проекты газоснабжения жилых и промышленных объектов</li>
+        <li>Проекты для жилых и промышленных объектов</li>
         <li>Согласование в Мосгазе и Ростехнадзоре</li>
         <li>Подключение к газовым сетям</li>
-        <li>Внутренние и наружные сети газоснабжения</li>
+        <li>Внутренние и наружные сети</li>
         <li>Технические условия и техперевооружение</li>
       </ul>
       <a href="#contact" class="btn btn-primary">Заказать проект</a>
+    </div>
+    <div class="service-block pereplanirovka">
+      <div class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M10 10v10"/></svg>
+      </div>
+      <h2>Перепланировка <br><span>помещений</span></h2>
+      <ul class="service-list">
+        <li>Перепланировка квартир</li>
+        <li>Перепланировка нежилых помещений</li>
+        <li>Согласование в госорганах</li>
+        <li>Разработка проектной документации</li>
+        <li>Полное сопровождение "под ключ"</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline">Заказать услугу</a>
     </div>
     <div class="service-block software">
       <div class="icon-circle" aria-hidden="true">
         <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
       </div>
-      <h2>Разработка инженерного ПО <br><span>и Reverse Engineering</span></h2>
+      <h2>Разработка ПО <br><span>и Reverse Engineering</span></h2>
       <ul class="service-list">
-        <li>Разработка инженерного программного обеспечения</li>
-        <li>Профессиональный Reverse Engineering продуктов</li>
-        <li>Восстановление утраченной логики и алгоритмов</li>
-        <li>Лицензионное сопровождение и аудит кода</li>
+        <li>Разработка инженерного ПО</li>
+        <li>Профессиональный Reverse Engineering</li>
+        <li>Восстановление логики и алгоритмов</li>
+        <li>Лицензионное сопровождение и аудит</li>
         <li>Интеграция с CAD/BIM системами</li>
       </ul>
       <a href="#contact" class="btn btn-outline">Обсудить проект</a>
@@ -1513,6 +1550,10 @@ section[id]{scroll-margin-top:96px}
       <button class="tab-btn" type="button" role="tab" id="tabbtn4" data-tab="tab4" aria-selected="false" aria-controls="tab4" tabindex="-1">
         <svg class="ico" aria-hidden="true"><use href="#i-crosshair"/></svg>
         <span>Геодезия</span><span class="tab-count">0</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" id="tabbtn6" data-tab="tab6" aria-selected="false" aria-controls="tab6" tabindex="-1">
+        <svg class="ico" aria-hidden="true"><use href="#i-layout"/></svg>
+        <span>Перепланировки</span><span class="tab-count">0</span>
       </button>
       <button class="tab-btn" type="button" role="tab" id="tabbtn5" data-tab="tab5" aria-selected="false" aria-controls="tab5" tabindex="-1">
         <svg class="ico" aria-hidden="true"><use href="#i-file-plus"/></svg>
@@ -1938,6 +1979,46 @@ section[id]{scroll-margin-top:96px}
       </div>
     </section>
 
+    <section id="tab6" class="tab-content" role="tabpanel" aria-labelledby="tabbtn6" data-title="Перепланировки и согласования" hidden>
+      <div class="panel-card">
+        <div class="table-scroll">
+          <table class="price-table">
+            <thead>
+              <tr><th>Наименование вида работ</th><th>Единица измерения</th><th>Стоимость</th><th>Сроки</th><th>Примечания</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-layout"/></svg></span><span class="svc-name">Технический план перепланировки квартиры / нежилого помещения</span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 25 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 10 раб. дней</td>
+                <td data-label="Примечания" class="note">С выездом инженера для обмеров.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-file-check"/></svg></span><span class="svc-name">Проект перепланировки и переустройства</span></div></td>
+                <td data-label="Ед. изм.">1 проект</td>
+                <td data-label="Стоимость" class="price-cell">от 30 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>от 15 раб. дней</td>
+                <td data-label="Примечания" class="note">Разработка проектной документации для согласования.</td>
+              </tr>
+              <tr>
+                <td data-label="Услуга"><div class="svc"><span class="svc-ico"><svg class="ico"><use href="#i-users"/></svg></span><span class="svc-name">Полное сопровождение и согласование перепланировки<span class="badge badge-hit">Хит</span></span></div></td>
+                <td data-label="Ед. изм.">1 объект</td>
+                <td data-label="Стоимость" class="price-cell">от 50 000 руб.</td>
+                <td data-label="Сроки" class="term"><svg class="ico"><use href="#i-clock"/></svg>индивидуально</td>
+                <td data-label="Примечания" class="note">Согласование в Мосжилинспекции и других инстанциях "под ключ".</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" hidden>
+          <div class="empty-ico"><svg class="ico"><use href="#i-search"/></svg></div>
+          <h3>Ничего не найдено</h3>
+          <p>Попробуйте изменить запрос.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="tab5" class="tab-content" role="tabpanel" aria-labelledby="tabbtn5" data-title="Дополнительные услуги" hidden>
       <div class="panel-card">
         <div class="table-scroll">
@@ -2148,9 +2229,9 @@ section[id]{scroll-margin-top:96px}
       <h4>Услуги</h4>
       <a href="#services">Кадастровые работы</a>
       <a href="#services">Проектирование газоснабжения</a>
+      <a href="#services">Перепланировки и согласования</a>
       <a href="#services">Разработка инженерного ПО</a>
       <a href="#price">Прайс-лист</a>
-      <a href="#process">Этапы работы</a>
     </div>
     <div class="footer-col">
       <h4>Контакты</h4>
